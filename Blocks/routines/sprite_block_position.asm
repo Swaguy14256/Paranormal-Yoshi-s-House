@@ -9,4 +9,6 @@
 	STA $98 		;|
 	LDA $0D 		;|
 	STA $99 		;/
+    LDA $185E|!addr
+    STA $1933|!addr
 	RTL

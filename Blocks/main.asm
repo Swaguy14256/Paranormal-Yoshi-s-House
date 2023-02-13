@@ -1,3 +1,4 @@
+; GPS 1.4.4
 !version = 3
 
 incsrc "defines.asm"			; global defines
@@ -35,6 +36,13 @@ endmacro
 org $06F624
 	autoclean dl acts_likes_1	; > Table containing all the acts like of the blocks in range 0000-3FFF
 
+org $06F67B			; > Add another offset check for wallrun in the CMP-BEQ list
+	autoclean JML WallRun
+
+org $06F717			; > Fix spriteH bug that there is another value being used in the stack.
+	autoclean JML FixSpriteH
+
+
 %bad_freedata_workaround("")
 print "acts like at 0x", pc
 acts_likes_1:
@@ -48,12 +56,6 @@ if !__insert_pages_40_plus == 1
 acts_likes_2:
 		incbin "__acts_likes_2.bin"
 endif
-
-org $06F67B			; > Add another offset check for wallrun in the CMP-BEQ list
-	autoclean JML WallRun
-
-org $06F717			; > Fix spriteH bug that there is another value being used in the stack.
-	autoclean JML FixSpriteH
 
 freecode
 print "main code at 0x", pc
@@ -75,7 +77,7 @@ FixSpriteH:
 	JML $06F602|!bank		; > Ignore custom block code.
 .RunBlockCode
 	JML $06F730|!bank
-
+;32
 block_execute:
 	STA $05
 	if !__insert_pages_40_plus == 0
@@ -102,6 +104,7 @@ block_execute:
 .continue
 	STA $00
 	LDA $05
+	;1F
 	CMP #$001E
 	BCC .RunBlockCodeNormal
 	LDA [$00]

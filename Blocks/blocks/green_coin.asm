@@ -31,4 +31,4 @@ MarioCape:
 MarioFireBall:
 RTL		; Ends the code.
 
-print "A green coin that is worth ",dec(!Coins)+1," coins instead of one."
+print "A green coin that is worth ",dec(!Coins+1)," coins instead of one."
