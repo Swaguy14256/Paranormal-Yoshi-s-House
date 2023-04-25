@@ -1,0 +1,35 @@
+SPRITE:
+00 red_yoshi_npc.cfg
+01 yellow_yoshi_npc.cfg
+02 blue_yoshi_npc.cfg
+03 green_yoshi_npc.cfg
+04 gamer_yoshi_npc.cfg
+05 golden_mushroom.cfg
+06 red_birdo_npc.cfg
+07 showering_yoshi_npc.cfg
+08 chef_yoshi_npc.cfg
+09 peanut.cfg
+0A standing_still_lab_assistant_yoshi_npc.cfg
+0B extra_standing_still_lab_assistant_yoshi_npc.cfg
+0C music_block.cfg
+0D lab_yoshi_npc.cfg
+0E yellow_birdo_npc.cfg
+0F moving_lab_assistant_yoshi_npc.cfg
+10 throwable_star.cfg
+11 defused_bobomb.cfg
+12 test_dummy.cfg
+13 blue_birdo_npc.cfg
+14 green_birdo_npc.cfg
+15 fireball.cfg
+16 super_extra_green_yoshi_npc.cfg
+17 extra_green_yoshi_npc.cfg
+18 money_red_yoshi_npc.cfg
+19 bob.cfg
+1A extra_yellow_yoshi_npc.cfg
+1B extra_blue_yoshi_npc.cfg
+C0 peanut_generator.cfg
+D0 fireball_generator.cfg
+
+EXTENDED:
+00 snowflake.asm
+01 rock.asm
