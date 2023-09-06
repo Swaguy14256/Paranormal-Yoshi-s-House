@@ -679,10 +679,10 @@ STA $00					;/ Loads and stores the sprite A or B flags.
 
 DYNAMICTIMER:
 LDA !AnPointer				; Loads the animation pointer x2.
-REP #$30				; Turns on 16-bit addressing for the A, X, and Y registers.
+REP #$30				; Turns on 16-bit addressing for the A, X, and Y Registers.
 AND #$00FF				; Keeps the last 8 bits.
 TAY					; Transfers the Accumulator to the Y Register.
-SEP #$30				; Turns on 8-bit addressing for the A, X, and Y registers.
+SEP #$30				; Turns on 8-bit addressing for the A, X, and Y Registers.
 
 LDA !GlobalFlipper			;\
 EOR AnimationsFlips,y			; | Sets the flipping for each frame.
@@ -707,7 +707,7 @@ RTS					; Ends the code.
 
 ChangeFrame:
 LDA !AnPointer				; Loads the animation pointer x2.
-REP #$30				; Turns on 16-bit addressing for the A, X, and Y registers.
+REP #$30				; Turns on 16-bit addressing for the A, X, and Y Registers.
 AND #$00FF				; Keeps the last 8 bits.
 TAY					; Transfers the Accumulator to the Y Register.
 
@@ -715,7 +715,7 @@ LDA !AnFramePointer			;\
 CLC					; | Adds the starting frame to the animation pointers.
 ADC EndPositionAnim,y			;/
 TAY					; Transfers the Accumulator to the Y Register.
-SEP #$30				; Turns on 8-bit addressing for the A, X, and Y registers.
+SEP #$30				; Turns on 8-bit addressing for the A, X, and Y Registers.
 
 LDA AnimationsFrames,y			;\
 STA !FramePointer			;/ Loads the frames for the new animation.
@@ -781,9 +781,9 @@ tileRel: db $00,$BA,$FE,$1A,$22,$7A,$9A,$C2,$80,$88,$A0,$A8,$C0,$C8,$E0,$E8
 propRel: db $00,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01
 
 Graphics:
-REP #$10				; Turns on 16-bit addressing for the X and Y registers.
+REP #$10				; Turns on 16-bit addressing for the X and Y Registers.
 LDY #$0000				; Loads 0 into the Y Register, this time in 16-bit.
-SEP #$10				; Turns on 8-bit addressing for the X and Y registers.
+SEP #$10				; Turns on 8-bit addressing for the X and Y Registers.
 
 LDA !tileRelativePositionNormal,x	; Loads the tile relative position.
 TAY					; Transfers the Accumulator to the Y Register.
@@ -808,7 +808,7 @@ LDA !FramePointer			; Loads the frame pointer.
 PLX					; Pulls back the X Register.
 CLC					;\
 ADC FlipAdder,x				;/ Adds the starting frames based on the sprite's flipping.
-REP #$30				; Turns on 16-bit addressing for the A, X, and Y registers.
+REP #$30				; Turns on 16-bit addressing for the A, X, and Y Registers.
 
 AND #$00FF				; Keeps the last 8 bits.
 ASL					; Multiplies the frame pointer by 2.
@@ -865,7 +865,7 @@ BMI FINISHDRAWING			; Branches if the X Register is a negative value.
 CPX $0D					;\
 BCS LOOP				;/ Branches if the X Register matches the value used to end the tile drawing loop is equal or higher.
 FINISHDRAWING:
-SEP #$10				; Turns on 8-bit addressing for the X and Y registers.
+SEP #$10				; Turns on 8-bit addressing for the X and Y Registers.
 PLX					; Pulls back the X register.
 
 LDA !FramePointer			; Loads the frame pointer.
