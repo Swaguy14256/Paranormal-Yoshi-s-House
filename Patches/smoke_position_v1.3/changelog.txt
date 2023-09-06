@@ -1,0 +1,14 @@
+v1.3
+-----
+Fixed a bug with tide l3 interaction not spawning splash + not pushing / stopping the player.
+
+v1.2
+-----
+Fixed a bug with fastrom that caused the torpedo ted's smoke to be placed wrong.
+
+v1.1
+-----
+SA-1 compatible. Read the header comment in the patch, however for 'specifics'.
+New High byte sets for: end level smoke, reznor bridge / summo bro, morton/roy/ludwig death animation
+Fixed a bug with motors in general that would displace the smoke for 00F2, instead of FFF2.
+Added some minor comments at least for each hijack.

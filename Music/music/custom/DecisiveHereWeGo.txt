@@ -1,0 +1,254 @@
+#am4
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Decisive Here We Go - ASMT 2009
+;;  by Kil
+;;  Insert size	: 2811
+;;  N-SPC Patch	: Required
+;;  Channels	: All Used
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+$ED $80 $6D $2B 
+$ED $80 $7D $00 
+$F0
+
+#0 w240 t55
+l16
+$EF $00 $00 $00
+$F1 $03 $60 $00
+v0c8
+$EF $D2 $40 $40			;reverb, channels D2 11100010
+$F2 $AC $16 $16
+
+#0     @1     q7f  v215 y9	;harmony1
+#1     @1     q7f  v215 y11	;harmony2
+#2     @14    q7f  v254 y10	;slap bass
+#3     @6     q7f  v254 y9	;melody
+#4     @23    q7f  v244 y9	;hi hat
+#5     @24    q7f  v253 y11	;snare drum
+#6     @6     q7f  v190 y13	;melody echo
+#7     @21    q7f  v240 y10
+	;bass drum
+
+
+
+;$DE $25 $0E $48
+;$EA $3C
+
+
+#0
+o5
+
+r32r8 d4o4a+8^ferfg4r 
+/c4c4d4c+4
+c4c4d8c+4^^32r32
+c4c4d4d4
+c4c4c4<a+4
+>c4c4d4d4
+c4c4c2
+c4c4d4d4
+c4c4c8^32r32<a+8>e8e
+c4c4d4d4
+c4c4c2
+d2c4^32r32c8^
+<b2a+2
+>d2c2
+<b4>d4f4ea+8^
+a2g2
+f2f2
+c4^8r4^cd^32r32e^32r32
+f8^rc8^rf8^rf8r8
+d8f8dff+gag+gf+add+e
+f8d8fg8a8arag8^^32r32
+d8f8dff+gag+gf+acc+d
+f8f8c<a+8ag+afdcf<aa+
+;
+
+
+#1 r8
+o2
+
+
+r32r8 >f4d8^<a+gaa+>c4^ /@1
+a4a4a+4a+4
+a4a4a+8a+4^^32r32
+a4a4a+4b4
+a4g+4g4a+4
+a4a4a+4b4
+a+4a+4a4a4
+a4a4a+4b4
+a4g+4g8^e^32r32>e8e
+<a4a4a+4b4
+a+4a+4a4a4
+a+4a+4a4^32r32a8^
+g+4g+4g4g4
+a+4a+4a4a4
+g+4g+4g8a+8a>c8^
+<f2d+2
+d2c+2
+c4^r4^8ca+ag8
+f2^4^r8^
+
+
+@0 d8<a+8>d8d8ffed+8r8d
+<a+8>d8d8e8ffrfd+8^^32r32
+d8<a+8>d8d8ffed+8fga
+a+8a+8a+agf4^8^
+ r1r1;
+
+
+#2 r8
+o3
+
+
+r32r8 <a+4f8^dcrde4^32r32
+< /ff^32r^32dd^32r^32gg^32r^32cc^32r^32
+ff^32r^32dd^32r^32g^32r32f+4^r
+ff^32r32faa^32r32aa+a+^32r32a+bb^32r32b
+aa^32r32ag+g+^32r32g+gg^32r32gf+f+^32r32f+
+ff^32r32faa^32r32aa+a+^32r32a+bb^32r32b
+>c8<c8e8g8f8c8f8>c32r32c32r32
+<ff^32r32faa^32r32aa+a+^32r32a+bb^32r32b
+aa^32r32ag+g+^32r32g+grf+rc>c^32r32c
+<ff^32r32faa^32r32aa+a+^32r32a+bb^32r32b
+>c8<c8e8g8f8c8f8>c32r32c32r32
+o2a+8b8o3c8d8c8o2a8fg8^
+g+8b8o3d8f8g8f8e8c8
+o2a+8a8a+8o3d8f8e8c8o2a8
+b8o3d8f8o2b8a+8o3d8ce^32r32e
+<ff^32r32ff>f^32r32<fd+d+^32r32d+d+>d+^32r32<d+
+dd^32r32dd>d^32r32<dc+c+^32r32c+c+>c+^32r32<c+
+c4^8^r4cd^32r32e^32r32
+ff^32r^32cc^32r^32ff^32r^32f8 @15>>f8 @14<
+<a+8a8a+8b8>c8c+8d8<a8
+g8a+8ag8f^32r32>c^32r32c<d+4
+a+8a8a+8b8>c8c+8d8<a8
+g8a+8a8g8f8c8f4
+
+ r1r1;
+
+
+#3
+
+ r8 o5
+
+r32r8 d4<a+8^32r32ferfg4^ /@6 
+$DE $29 $0E $40  
+$EA $3C 
+r1^1
+a4f8^cdf^32r32f4d
+c^32r32f^32r32f^32r32>c^32r32<a8^g8^rc
+a4f8^cdf^32r32f4d
+c^32r32f^32r32a+agf4^8^r8
+a4f8^cdf^32r32f4d
+c^32r32f^32r32f^32r32>c^32r32 
+ o4 $EB $01 $06 $01 g+32^^32^ $EB $00 $00 $00 g8>  c^32^32^
+<a4f8^cdf^32r32f4d
+c^32r32f^32r32a+agf4^8^r8
+a8^f8^c8a8^f8g8^
+g+^32c32f^32c32g+8^32r32g4^8^r8
+a8^f8^c8a8^f8g8^
+g+^32c32f^32c32>c2^8^r
+<a4f8^cdfrf8^rg
+a32gf32c8d8^f4^8^rd
+>c^32<f32>d^32<f32>c^32<f32>d^32<f32o5c8^<ca+ag8
+f2^4r4
+
+
+@0 $DF o4f32ed+32d8f8g8a32r32g+32r32g32r32f+8cc+d
+f8c8fg8a8>crc<b4
+o4f^32c32d8f8g8a32r32a+32r32>c32r32d8<cc+d
+f8d8fg^32r32f4^8
+ r1r1;
+
+
+
+#7 r8
+o3r32r8r1/[@21g+@21g+^32r4^^32]3@21g+r[@21g+r8]2[@21g+@21g+8@21g+r@21
+g+8@21g+@21g+@21g+8@21g+r@21g+8@21g+@21g+@21g+8@21g+r@21g+8@21g+]2@21g+@21
+g+8@21g+r@21g+8[@21g+]2@21g+8@21g+r@21g+r8[@21g+@21g+8@21g+r@21g+8@21
+g+]3@21g+r[@21g+]2r4[@21g+@21g+8@21g+r@21g+8@21g+]3@21g+@21g+8
+@21g+r@21g+r8@21g+8r8[@21g+]2r8@21g+8[r@21g+]2r8@21g+8r8[@21g+
+]2r8@21g+8[r@21g+]2r8@21g+8r8[@21g+]2r8@21g+8[r@21g+]2r8
+@21g+8r8[@21g+]2r8@21g+8r[@21g+]2r8^[@21g+@21g+8@21g+r@21g+8@21g+
+]3@21g+@21g+8@21g+r4@21g+r2^8@21g+r4@21g+r8@21g+r@21g+8[@21g+]2@21g+8
+@21g+r@21g+8@21g+@21g+8r8[@21g+]2r8@21g+8[r@21g+]2r8@21g+8r8[@21
+g+]2r8@21g+r4^8^@21g+8r8[@21g+]2r8@21g+8[r@21g+]2r8@21g+8r8[@21
+g+]2r8@21g+8r[@21g+]2r1r1;
+
+
+#4 r8
+o4
+
+r32r8r1/[r1]2<[@23f4@23f4@23f4@23f4@23f4@23f4@23f4@23f4]2[@23f4
+@23f4]3@23f8^[@23f8]2@23f[@23f4@23f4]3@23f4@23f8[@23f]2[
+@23fr32@23f32@23f8@23fr32@23f32@23f8@23fr32@23f32@23f8]2@23fr32@23f32@23f8
+@23fr32@23f32[@23f32@23f]2[r32@23f32@23f8@23fr32@23f32@23f8@23fr32@23f32
+@23f8@23f]2r32@23f32[@23f8@23f]2[@23f8@23f8@23f8@23f8@23f8@23f8@23
+f8@23f8]2@23f8r1^2^4^8[@23fr32@23f32@23f8@23fr32@23f32@23f8@23fr32@23f32@23f8
+]2[@23f@23fr]2[@23f32@23f]2[r32@23f32@23f8@23fr32@23f32@23f8
+@23fr32@23f32@23f8@23f]2r32@23f32@23f8[@23f@23f]2r1r1;
+
+
+#6
+
+ r8o5
+
+r32r8 d4<a+8^32r32ferfg4^ /@6 
+$DE $29 $0E $40  
+$EA $3C 
+r32 r1^1
+a4f8^cdf^32r32f4d
+c^32r32f^32r32f^32r32>c^32r32<a8^g8^rc
+a4f8^cdf^32r32f4d
+c^32r32f^32r32a+agf4^8^r8
+a4f8^cdf^32r32f4d
+c^32r32f^32r32f^32r32>c^32r32 o4 $EB $01 $06 $01   g+32^^32^  $EB $00 $00 $00 g8> c^32r32c
+<a4f8^cdf^32r32f4d
+c^32r32f^32r32a+agf4^8^r8
+a8^f8^c8a8^f8g8^
+g+^32c32f^32c32g+8^32r32g4^8^r8
+a8^f8^c8a8^f8g8^
+g+^32c32f^32c32>c2^8^r
+<a4f8^cdfrf8^rg
+a32gf32c8d8^f4^8^rd
+>c^32<f32>d^32<f32>c^32<f32>d^32<f32o5c8^<ca+ag8
+f2^4r8^^32
+
+
+@7 $DF o4f32ed+32d8f8g8a32r32g+32r32g32r32f+8cc+d
+f8c8fg8a8>crc<b4
+o4f^32c32d8f8g8a32r32a+32r32>c32r32d8<cc+d
+f8d8fg^32r32f4^8 r1r1;
+
+
+
+#5 r8
+o2
+
+
+v1 a32 v250 gg r1 /v1g+4 v252
+g+4r4g+4
+r4g+4rg+r8g+rg+g+
+r4g+r4^8^g+r4^8^
+g+r4^8^g+r4^8^
+g+r4^8^g+r4^8^
+g+r4^8^g+rg+g+
+r4g+r4^8^g+r4^8^
+g+r4g+r8^g+rg+
+r4g+r4^8^g+r4^8^
+g+r4^8^g+rg+g+
+r8g+8r8g+8r8g+r8^g+8
+r8g+8r8g+8r8g+r8^g+32g+g+32
+r8g+8r8g+8r8g+r8^g+8
+r8g+8r8g+8r8g+r8g+8g+
+r4g+r4^8^g+r4^8^
+g+r4^8^g+rg+g+
+r2^4g+g+g+r4^
+g+r4^8^g+r4^
+g+8r8g+8r8g+r8^g+8
+r8g+8r8g+8rg+rg+g+rg+32g+g+32
+r8g+8r8g+8r8g+r8^g+8
+r8g+8r8g+8r8g+r8g+g+g+ r1r1
+;

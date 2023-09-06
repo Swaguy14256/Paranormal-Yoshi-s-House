@@ -1,0 +1,320 @@
+#define NO_SFX_LAG 1
+
+#amk 2
+
+#spc
+{
+    #title   "At the Bottom of Night"
+    #game    "Chrono Trigger"
+    #author  "Yasunori Mitsuda"
+    #comment "Ported by Kevin"
+    #length  "2:15"
+}
+
+#path "at-the-bottom-of-night"
+
+#samples
+{
+    #at-the-bottom-of-night
+    "20.brr"
+    "21.brr"
+    "22.brr"
+    "23.brr"
+    "24.brr"
+}
+
+#instruments
+{
+    "20.brr" $ff $ed $00 $0b $ff ; @30
+    "21.brr" $f6 $e4 $00 $08 $50 ; @31
+    "21.brr" $f8 $e4 $00 $08 $50 ; @32
+    "22.brr" $ff $ec $00 $06 $2d ; @33
+    "23.brr" $ff $ed $00 $0c $10 ; @34
+    "24.brr" $ff $e0 $00 $09 $0f ; @35
+}
+
+;==================;
+;      Volume      ;
+;==================;
+        w200
+$F6 $0C $40 $F6 $1C $40
+
+;==================;
+;       Echo       ;
+;==================;
+;$ef $ff $28 $28
+$ef $ff $14 $14
+$f1 $0d $46 $01
+
+;==================;
+;      Macros      ;
+;==================;
+#if NO_SFX_LAG == 0
+"I20   = @30 $de$10$0e$10"
+#endif
+#if NO_SFX_LAG != 0
+"I20   = @30 $df"
+#endif
+"I21_1 = @31"
+"I21_2 = @32"
+"I22   = @33"
+"I23   = @34"
+#if NO_SFX_LAG == 0
+"I24   = @35"
+#endif
+#if NO_SFX_LAG != 0
+"I24   = @35 $de$10$0e$10"
+#endif
+
+"FL = $dc$30$0c"
+"FR = $dc$30$08"
+
+;==================;
+;    Channel #0    ;
+;==================;
+#0 $f4$02
+t25
+
+I20 v231 y10 o3 l8 $dc$18$08
+d FL ^ a FR ^
+
+/
+
+t35
+
+e FL ^4 FR ^4 FL ^4 FR ^4 FL ^4 FR ^ e FL d e FR f
+c FL ^4 FR < a+ > f FL ^4 FR ^4 FL ^4 FR ^
+f FL ^ g FR ^ a FL ^4 FR d 
+d FL ^4 FR ^4 FL ^4 FR d4
+FL e4 FR f c FL ^4 FR ^4 FL ^4 FR ^
+r32 f16. FL ^4 FR ^^32
+e16. FL ^^64
+
+t32
+
+d=21 FR ^=1
+
+t34
+
+a=23
+
+t35
+
+e FL ^4 FR ^4 FL ^4 FR ^
+^ FL ^4 FR ^ e FL d e FR f
+c FL ^4 FR < a+ > f FL ^4 FR ^
+^ FL ^4 FR ^ f FL ^ g FR ^
+a FL ^4 FR f f FL ^ a FR ^
+g FL ^ e FR ^ d FL ^ c FR ^
+d FL ^4 FR ^4 FL ^4 FR ^4
+FL ^4 FR ^ d FL ^16 c. FR < a
+a+ FL ^4 FR ^4 FL ^ a+ FR > a
+g FL ^ f FR ^ e FL ^4 FR f
+g FL ^4 FR g a+ FL ^16 a. FR g
+f FL ^4 FR ^ e FL ^ [[f FR ^
+d FL ^4 FR ^ d FL e]]2 f FR g
+f FL ^4 FR ^4 FL ^4 FR ^
+
+$e3$60$15
+
+e FL ^4 FR ^
+
+$e3$60$21
+
+d FL ^ a FR ^
+
+;==================;
+;    Channel #1    ;
+;==================;
+#1
+r2 / r4.
+
+I20 v180 y12 o4 l4
+[[FR c FL ^ FR ^ FL ^]]2
+< [[FR a+ FL ^ FR ^ FL ^]]2
+> FR d FL ^ FR ^ FL ^
+< (10)[FR f FL ^ FR ^ FL ^]
+FR a FL ^ FR ^8
+r=4 c+=20 FL ^ FR ^=28
+c+=20 FL ^ FR ^8 r8 FL r8
+[[e8 FR > c FL ^ FR ^ FL ^8 <]]2
+[[< a8 FR > a+ FL ^ FR ^ FL ^8]]2
+< a+8 FR >> d FL ^ <
+FR < a+8 >> c8 FL ^ < FR c FL ^8
+> c8 FR ^8 d8 FL ^ FR < g FL ^8
+> d8 FR ^8 d8 FL ^ FR ^ FL ^ $dc$18$0a ^8
+
+I24 v130 o5 $ea$10
+r2 c2
+^4 < a+4 a4. g8
+g4. g8 a+8. a8. g8
+f2 e4 f4
+d2^8 e8 f4
+d2 d8 e8 f8 g8
+f1
+e1
+
+;==================;
+;    Channel #2    ;
+;==================;
+#2
+r2 / r4.
+
+I20 v180 y12 o3 l4
+(20)[FR a FL ^ FR ^ FL ^]2
+(10)2
+(20)
+FR d FL ^ FR ^ FL ^
+FR f FL ^ FR ^8
+r=2 < a+=22 FL ^ FR ^=26 a+=22 FL ^ FR ^8 r8
+[[FL a > FR a FL ^ FR ^ <]]2
+FL d > FR f FL ^ FR ^ <
+FL d > FR f FL ^ FR ^8 r8 <
+FL f > FR a FL ^8
+a8 FR ^8 g8 FL ^8 g8 FR ^
+FL < g FR ^8 > a8 FL < a FR ^8 
+> a8 FL ^ FR d8 a8 FL ^ FR ^8 
+d8 FL ^ $dc$18$0a ^8
+
+I23 v190 o1 l8 $df
+g a+ > d f a f d f <
+a+ > d f a > c < a+ a a+
+c+ e g a+ > c+ < a+ a a+
+a f g f e f e c
+d < a+ > c d f d f g
+a f g a a+ a a+ > c
+c+4 d4 e4 f4
+e4 c+4 < a2
+
+;==================;
+;    Channel #3    ;
+;==================;
+#3
+r2 / r4
+
+I20 v180 y10 o3 l4 $dc$18$0c
+[[e8 FR ^ FL ^ FR ^ FL ^8]]2
+< [[a8 FR ^ FL ^ FR ^ FL ^8]]2
+> [[c8 FR ^ FL ^ FR ^ FL ^8]]2
+< f8 FR ^ FL ^ FR ^ FL ^ FR ^ FL ^ $dc$18$0a ^8
+
+I21_1 v130 o3 $df
+e1. g2
+
+I21_2
+f1
+a2 a+2
+a1
+g1^1
+f+1
+
+v160
+f1
+^4 g4 a4 a+4
+> c+4 d4 e4 f4
+f8 e8 d8 e8 c8 d8 < a8 > c8 <
+f1^1^1
+e1
+
+;==================;
+;    Channel #4    ;
+;==================;
+#4
+r2 / r8
+
+I20 v180 y8 o2 l4
+[[FL a FR ^ FL ^ FR ^]]2
+[[FL d FR ^ FL ^ FR ^]]2
+[[FL f FR ^ FL ^ FR ^]]2
+FL c FR ^ FL ^ FR ^ FL ^ FR ^ FL ^ $dc$18$0a ^8
+
+I21_1 v110 y14 o3 $df
+c1^1
+
+I21_2
+d1^1
+f1
+e1
+d1^1
+d1^1
+e1
+f2. e4
+d1^1
+c+1^1
+
+;==================;
+;    Channel #5    ;
+;==================;
+#5
+r2 /
+
+I20 v180 y10 o2 l4 $dc$18$08
+[[d8 FL ^ FR ^ FL ^ FR ^8]]2
+< [[g8 FL ^ FR ^ FL ^ FR ^8]]2
+[[a+8 FL ^ FR ^ FL ^ FR ^8]]2
+f8 FL ^ FR ^ FL ^ FR ^8
+a8 FL ^ FR ^ FL ^ $dc$18$0a ^8
+
+I22 v230 o3 l8 $df
+d4 r d^2
+d4 r d4.
+a4 < g4 r g^2
+g4 r g4.
+> d4 < a+4 r a+4.
+> f4 c4 r c4.
+g4 d. a. > d4
+e4 d16 < a16 d. d16 r d4.
+c4 < g4 r g4.
+> d4 c4 r c4. r
+c < a4 r a 
+> c+4 r c+ d4 r d 
+c4 r c < a+4 r a+4 r4
+a+ g4 r g^2
+a4 r a4. r > e <
+a1
+
+;==================;
+;    Channel #6    ;
+;==================;
+#6
+r2 / r4.
+
+I20 v180 y12 o3 l4
+[FR f FL ^ FR ^ FL ^]2
+[[FR d FL ^ FR ^ FL ^]]2
+*
+FR < a+ FL ^ FR ^ FL ^ >
+FR c FL ^ FR ^8
+< [[g8 FL ^ FR ^8]]2
+[[d8 FL ^ FR > f FL ^ FR ^8 <]]2
+[[< g8 FL ^ FR >> d FL ^ FR ^8 <]]2
+< a+8 FL ^ FR >> f FL < f FR ^8
+> e8 FL < g FR ^8 > a8 FL ^ FR c8
+g8 FL ^8 d8 FR ^ FL < a FR ^8
+> f+8 FL ^ FR ^ FL ^8 < a8 $dc$18$0a ^8
+
+I21_2 v100 y6 o2 $df
+a+1^1
+> c+2. < a+4
+a2 g2
+f1^1
+a1^1
+
+;==================;
+;    Channel #7    ;
+;==================;
+#7
+r2 /
+
+(99)[r2]16
+
+I21_1 v100 y6 o2
+a1^1
+
+I21_2
+a+1^1
+> d1
+c1.
+a1.
+
+(99)16

@@ -1,0 +1,232 @@
+	LDX $1B88
+	LDA $1B89
+	CMP $B108,X
+	BNE label_05B191
+	TXA
+	BEQ label_05B132
+	STZ $1426
+	STZ $1B88
+	STZ $41
+	STZ $42
+	STZ $43
+	STZ $0D9F
+	LDA #$02
+	STA $44
+	BRA label_05B18E
+
+label_05B132:
+	LDA $0109
+	ORA $13D2
+	BEQ label_05B16E
+	LDA $1DF5
+	BEQ label_05B16E
+	LDA $13
+	AND #$03
+	BNE label_05B18E
+	DEC $1DF5
+	BNE label_05B18E
+	LDA $13D2
+	BEQ label_05B16E
+	PLB
+	INC $1DE9
+	LDA #$01
+	STA $13CE
+	BRA label_05B165
+
+label_05B15A:
+	PLB
+	LDA #$8E
+	STA $1F19
+	STZ $0109
+	LDA #$00
+
+label_05B165:
+	STA $0DD5
+	LDA #$0B
+	STA $0100
+	RTL
+
+label_05B16E:
+	LDA $15
+	AND #$F0
+	BEQ label_05B18E
+	EOR $16
+	AND #$F0
+	BEQ label_05B186
+	LDA $17
+	AND #$C0
+	BEQ label_05B18E
+	EOR $18
+	AND #$C0
+	BNE label_05B18E
+
+label_05B186:
+	LDA $0109
+	BNE label_05B15A
+	INC $1B88
+
+label_05B18E:
+	JMP label_05B299
+
+label_05B191:
+	CMP $B106,X
+	BNE label_05B1A0
+	TXA
+	BEQ label_05B1A3
+	JSR $B31B
+	LDA #$09
+	STA $12
+
+label_05B1A0:
+	JMP label_05B250
+
+label_05B1A3:
+	LDX #$16
+
+label_05B1A5:
+	LDY #$01
+	LDA $A590,X
+	BPL label_05B1AF
+	INY
+	AND #$7F
+
+label_05B1AF:
+	CPY $1426
+	BNE label_05B1B9
+	CMP $13BF
+	BEQ label_05B1BC
+
+label_05B1B9:
+	DEX
+	BNE label_05B1A5
+
+label_05B1BC:
+	LDY $1426
+	CPY #$03
+	BNE label_05B1C5
+	LDX #$18
+
+label_05B1C5:
+	CPX #$04
+	BCS label_05B1D1
+	INX
+	STX $13D2
+	DEX
+s	JSR $B2EB
+
+label_05B1D1:
+	CPX #$16
+	BNE label_05B1DB
+	LDA $187A
+	BEQ label_05B1DB
+	INX
+
+label_05B1DB:
+	TXA
+	ASL A
+	TAX
+	REP #$20
+	LDA $A5A7,X
+	STA $00
+	REP #$10
+	LDA $7F837B
+	TAX
+	LDY #$000E
+
+label_05B1EF:
+	LDA $A580,Y
+	STA $7F837D,X
+	LDA #$2300
+	STA $7F837F,X
+	PHY
+	SEP #$20
+	LDA #$12
+	STA $02
+	STZ $03
+	LDY $00
+
+label_05B208:
+	LDA #$1F
+	BIT $0003
+	BMI label_05B218
+	LDA $A5D9,Y
+	STA $0003
+	AND #$7F
+	INY
+
+label_05B218:
+	STA $7F8381,X
+	LDA #$39
+	STA $7F8382,X
+	INX
+	INX
+	DEC $02
+	BNE label_05B208
+	STY $00
+	REP #$20
+	INX
+	INX
+	INX
+	INX
+	PLY
+	DEY
+	DEY
+	BPL label_05B1EF
+	LDA #$00FF
+	STA $7F837D,X
+	TXA
+	STA $7F837B
+	SEP #$30
+	LDA #$01
+	STA $13D5
+	STZ $22
+	STZ $23
+	STZ $24
+	STZ $25
+
+label_05B250:
+	LDX $1B88
+	LDA $1B89
+	CLC
+	ADC $B10A,X
+	STA $1B89
+	CLC
+	ADC #$80
+	XBA
+	LDA #$80
+	SEC
+	SBC $1B89
+	REP #$20
+	LDX #$00
+	LDY #$50
+
+label_05B26D:
+	CPX $1B89
+	BCC label_05B275
+	LDA #$00FF
+
+label_05B275:
+	STA $04EC,Y
+	STA $053C,X
+	INX
+	INX
+	DEY
+	DEY
+	BNE label_05B26D
+	SEP #$20
+	LDA #$22
+	STA $41
+	LDY $13D2
+	BEQ label_05B28E
+	LDA #$20
+
+label_05B28E:
+	STA $43
+	LDA #$22
+	STA $44
+	LDA #$80
+	STA $0D9F
+
+label_05B299:
+	PLB
+	RTL
