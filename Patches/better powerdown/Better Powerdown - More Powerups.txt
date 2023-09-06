@@ -1,0 +1,72 @@
+So, my patch checks which power up Mario currently has got.
+That being said, it takes use of pointers to determine
+which animation is triggered.
+This, however, means that my patch doesn't detect if the
+power up state is beyond fire flower (last vanilla powerup
+state). And no, detecting it is rather impossible.
+
+As such, you need to add pointers for each power up because
+my patch doesn't detect custom power ups (note: they WERE
+supported but LX5 turned his patch into a more add-on
+system rather then an all-in-one).
+Anyways, in order to add pointers, you need to go to
+"Actions:". There you see below it three pointers and each
+of them are called as the power ups.
+In order to add a power up, you add a new line right after
+"dw .FireFlower", put a "dw" at the beginning, leave a
+space, then add a period and then name the lable.
+It doesn't matter, how you call it as long as it is valid
+by Asar i.e. only all 26 letters from the basic latin
+alphabet (small and big letters are valid but stuff like
+accents [é, è or ê] or tremas [ä, ö or ü] are, however,
+invalid) and the underline can be used* (spaces aren't
+supported, btw) and Asar is case-sensitive, btw.
+It is recommend to call the lable either as the power up
+name or the effect name (the latter can be seen after the
+semicollon in the table). Remember the order! After you have
+done that, remember that if you use the former methode, you
+need to add the lable name to the effect which should run.
+
+Here is an example:
+Let's say, you want to use an ice flower and its state is
+4 (i.e. coming after the fire flower). In order to do
+that,
+dw .Mushroom	; .Shrink
+dw .Cape	; .Smoke
+dw .FireFlower	; .Palette
+becomes either this
+dw .Mushroom	; .Shrink
+dw .Cape	; .Smoke
+dw .FireFlower	; .Palette
+dw .IceFlower	; .Palette
+or that
+dw .Mushroom	; .Shrink
+dw .Cape	; .Smoke
+dw .FireFlower	; .Palette
+dw .Palette	; Ice Flower
+(The comments/ semi-collons and stuff right to it are
+optional but they can help you to refind the correct
+power up/ effect.)
+
+If you use the former methode then remember to go there:
+.Palette
+.FireFlower
+and add the lable you used at the table (i.e. in this case
+".IceFlower")
+.Palette
+.FireFlower
+.IceFlower
+The "dw" isn't needed because it isn't a pointer but these
+marks position where the JSR should jump to.
+
+Another side note: Advanced ASMers can add more effects.
+I haven't included with them because there are only three
+power ups in the vanilla game. In fact, I would say that
+these three effects are enough and coding a new animation
+(would) require(s) some other hijacks.
+
+*There are a few special characters which can be only used
+by special lbles. In this case, the lables with a period
+at the beginning are an example because these makes regular
+lables "sublables" i.e. their namespace is the last main
+lable (without a period).

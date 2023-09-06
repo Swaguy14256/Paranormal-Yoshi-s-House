@@ -1,0 +1,140 @@
+#SPC
+{
+	#title "Crumbling Caverns"
+	#game "CUSTOM"
+	#author "Harumi Makoto"
+	#comment "catgirls are hot."
+}
+
+#path "smw+"
+
+#samples
+{
+	#default
+	"custom_tom.brr"
+	"XG_Crash.brr"
+	"mm7_hihat.brr"
+}
+
+#instruments
+{
+	@14 $FF $EF $B8 $07 $00			;@30
+	@13 $83 $EC $B8 $03 $00			;@31 synth strings
+
+	"custom_tom.brr" $FF $F1 $B8 $05 $45	;@32 tom
+	@21 $00 $00 $7F $03 $00			;@33 kick o4e
+	@10 $00 $00 $5F $04 $00			;@34 snare o4d
+
+	"XG_Crash.brr" $FF $F1 $B8 $0A $92	;@35 crash o3c
+	"mm7_hihat.brr" $CF $DC $B8 $0F $A4	;@36 hihat o3c
+
+	@0 $FA $88 $B8 $03 $00			;@37 clingy sound
+}
+
+#amk 2
+
+$EF $00 $37 $37
+$F1 $08 $BF $01
+
+w255 t45
+
+#0
+
+r4./
+
+@30 v180 y9
+
+o1(000)[q5C a8 q3D a16 q5A >a8 q67 <a16 q5E g8 q5C g16 q5D >g8 q38 <g16]
+o1(001)[q5C f16 q5E >f16 q67 <f16 q7B f8 q5D >f16 q6C <f16 q37 g16 q5A g16 q6C >g8 q37 <a-16]
+(000)
+o1(002)[q5C f16 q5E >f16 q67 <f16 q7B f8 q5D >f16 q6C <f16 q37 e-16 q5A e-16 q6C >f8 q37 <a-16]
+
+(000)(001)(000)(002)
+
+#1
+
+@32 v140 $F4 $03
+
+o4(100)[y14 c8c16 y10 <g16g16 y6 d16] /
+
+v170 y11 $F4 $03
+
+(101)[@33 o4e8. @34 d8. @33 e16e16e16 @34 d8.]3
+@33 o4e8. @34 d8. @33 e16e16e16 @34 d16d16d16
+(101)3
+
+@33 o4e8. @34 d8. @32 v140 $F4 $03 (100)
+
+#2
+
+$F4 $03
+
+$E5 $0C $06 $35
+$DE $00 $0A $45
+
+r4./
+
+@31 v90 y7
+
+o4 q7C a1^2 q7E f1^2 q7D g1^2 q7C a1^2
+
+#3
+
+$F4 $03
+
+$E5 $0C $06 $35
+$DE $00 $0A $45
+
+r4./
+
+@31 v90 y12
+
+o4 q7C f1^2 q7E c1^2 q7D d1^2 q7C f1^2
+
+#4
+
+$F4 $03
+
+$E5 $0C $06 $35
+$DE $00 $0A $45
+
+r4./
+
+@31 v90 y9
+
+o4 q7C d1^2 q7E <a1^2 q7D b1^2 q7C >d1^2
+
+#5
+
+@37 v110 y8 $F4 $03
+
+$DE $00 $0A $24
+
+r4./
+
+o5(500)[q5A c8. q6C e-8 q4B c16 q5D <a4r16 q68 g16
+q5A a8. q4C >c8 q5D <a8.r8. q7A a16
+q4B >c8. q5D e-8 q4C c8.r8. q39 c16
+q5A e-8. q7C g8 q59 f16 q4B e-8 q3A c16 q6C <a8 q58 g16]2
+
+#6
+
+r4./
+
+@35 v130 y11 o3c2
+
+@36 v60 y9
+
+c16c8c16
+
+[c8c8c16c16c8c16c8c16]7
+
+#7
+
+@37 v0 y12 $F4 $03
+
+$DE $00 $0A $24
+
+q70 r4./
+
+o4 q58 g16 v70 (500)2

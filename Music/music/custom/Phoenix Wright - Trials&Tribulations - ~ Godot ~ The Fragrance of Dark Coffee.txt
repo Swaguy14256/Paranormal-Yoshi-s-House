@@ -1,0 +1,46 @@
+#am4
+#instruments
+{
+	@1 $AF $A0 $B8 $03 $00
+}
+$ED $80 $6D $2B 
+$ED $80 $7D $00 
+$F0
+
+;Phoenix Wright T&T ~ Godot ~ The Fragrance of Dark Coffee
+;by Joey : )
+;^That's Masashi27.. heh
+
+#0
+$EF $FF $3F $3F
+$F1 $04 $14 $01
+$ED $3F $CD
+w200 t28 q7F @6 v220
+
+o3 l8 {ab>f+<b}/>f+2 {f+4e2<r4b>f+<b>f+e4ddc+d d2<gaa+>cdefg} a1 {r4aa4f+f+4dd4<a>d4<a>dedef+dd4<a}
+r4>{dcdf4e4de}c2^4 {rc>c<b1 feded4c4<b>ce4d2}r4<{ab>c}<b4>e4<a1 @16 o4
+{r4b>f+af+d<b>d2<rab>f+ede4f+4^8 d}a4<{a+>a<a+>a4g4fgaefc4<a>}c2{de}f4^32e32f32e4<{b>cddc<b>cdea4b4>
+c4 c8^2<a8 a8^2>c<b1} @6 o3 {ab>f+<b}
+
+#1 q7F @8 v255 $ED $3E $CA
+
+o1 l2 {r4a8a+8}/b>e<a>d<g>{c8^2<g8f8^2f8aa+4} b{e8^2e8}a>{d8^2d8<g8^2g8}>c<{f1>c8f4^8<b8^2b8}>
+e4<e4a2>{d8^2d8}<f2e2a2^4 l4 a+ b>f+e<{eg+8} a>ed {d<a8} g>dcgfc<{fg8a>c8}<b>fe<g+ag+gf+>d<fa>de<ba+>c+
+
+#2 q7F @16 v170 $ED $4F $CC y12
+
+o4 l4 {r2}/f+2{f+e2}f+eedd2 dee2c+2d2f+ef+eed{d8^2f8efg a8^4^1a8} a2{g+2f} e1c2<b1>c+e [r1]99
+
+#3 q7F @1 v180 $ED $2F $A0 y8
+
+o4 l2 {r2}/d<b>c+<aa+a+a{g2a+4}ab>c+2<aa+a+>e1d1c<aag+a>c+
+f+g+ef+dec1fg+a4g+4g4f+4f1d1
+
+#4 q7F @30 v180
+
+o3 l2 {r2}/ag+gf+fgf{e2f4}f+g+g+f+fg>c1<b1gf+feea+
+b>e<a>d<g>c<f1b>e[e4]4d1<e1
+
+#5 q7F @22 v210
+
+o3 l4 {r2}/[rdrdrdrdrdrdrdrd]99

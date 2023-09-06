@@ -1,0 +1,38 @@
+#amk 2
+#path "Super Metroid"
+#samples
+{
+#default
+"0C.brr"
+"0B.brr"
+}
+#instruments
+{
+"0C.brr" 		$FF $E0 $B8 $06 $F0	; @30
+"0B.brr" 		$FF $E0 $B8 $04 $90	; @31
+}
+#SPC
+{
+#title "Item Room"
+#game "Super Metroid (SMW)"
+#author "Kenji Yamamoto"
+#comment "A missle. Yay..."
+}
+
+w220 t15 $F6 $0C $60 $F6 $1C $60 $EF $0F $0A $0A $F1 $02 $0A $01
+
+#0
+@30 v70 y7 o5 l8 q2F
+$EE $28 r=10/r4 a+ f a c+ r4. c f+ b r4 f=20 r=16 d=20 r=4 r1^4^16
+
+#1
+@30 v50 y10 o4 l8 q2F
+$EE $28 r=10/r4 d <a> c+ <f r4. e a+> d+ r4 a r16 f+ r1^4^16
+
+#2
+@30 v60 y13 o5 l32 q0f
+$EE $28 r=10/r6 a+ f a c+ c f+ b r8.. a+ f a c+ c f+ b r=54 a c+ a+ f c f+ b r=62 a+ f a c+ c f+ b r6 f a+ a c+ c f+ b r1^8
+
+#3
+@31 v60 y10 o1 q7f
+$EE $46 r=10/[$E8 $3C $C8 c=60 $E8 $30 $3C ^4]12
