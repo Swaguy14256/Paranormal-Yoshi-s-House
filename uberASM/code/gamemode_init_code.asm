@@ -281,8 +281,7 @@ NOMUSHROOM:
 	LDA #$01		;\
 	STA $0F3C		;/ Sets the all 3-Up Moons flag.
 NOMOON:
-	LDX $0DB2		;\
-	BEQ ONEPLAYER		;/ Branches if only 1 Player mode is selected.
+	LDX #$01		; Loads a loop count of 1.
 PLAYERLOOP:
 	LDA $0DB4,x		;\
 	CMP #$62		; | Branches if either Mario or Luigi has 99 lives.
@@ -294,12 +293,6 @@ PLAYERLOOP:
 MAXLIVES:
 	LDA #$01		;\
 	STA $0F3D		;/ Sets the 99 lives flag.
-	BRA FINISHSAVE		; Branches to the finish save routine.
-ONEPLAYER:
-	LDA $0DBE		;\
-	CMP #$62		; | Branches if Mario has 99 lives.
-	BCS MAXLIVES		;/
-	STZ $0F3D		; Clears the 99 lives flag.
 FINISHSAVE:
 	RTS			; Ends the code.
 gamemode_init_F:

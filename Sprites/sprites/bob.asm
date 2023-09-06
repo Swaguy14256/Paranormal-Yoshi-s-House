@@ -324,7 +324,7 @@ RTS						; Ends the code.
 RANDOMIZER:
 PHX						; Preserves the X Register.
 PHP						; Preserves the Processor Flags.
-SEP #$30					; Turns on 8-bit addressing for the A, X, and Y registers.
+SEP #$30					; Turns on 8-bit addressing for the A, X, and Y Registers.
 PHA						; Preserves the Accumulator.
 JSL $81ACF9					; Jumps to the random number generation routine.
 PLX						; Pulls back the X Register.
@@ -1357,9 +1357,9 @@ STA $08						;/
 LDA $14D4,x					; Loads the high byte of the sprite's Y position.
 XBA						; Swaps the high byte with the low byte.
 LDA $D8,x					; Loads the low byte of the sprite's Y position.
-REP #$20					; Turns on 16-bit addressing mode.
+REP #$20					; Turns on 16-bit addressing for the Accumulator.
 CMP $07 					; Checks if the sprite's Y position is the same as its Y destination.
-SEP #$20					; Turns on 8-bit addressing mode.
+SEP #$20					; Turns on 8-bit addressing for the Accumulator.
 BEQ LOCKPOSITION				; Branches if the sprite's Y position is not the same as its Y destination.
 JSL $81802A					; Applies the speed with gravity.
 UNLOCKPOSITION:
@@ -1527,11 +1527,11 @@ ICEFLYING:
 LDA $7FAB10,x					;\
 AND #$04					; | Branches if the extra bit is not set.
 BEQ NOSNOWEFFECT				;/
-REP #$20					; Turns on 16-bit addressing mode.
+REP #$20					; Turns on 16-bit addressing for the Accumulator.
 LDA $7FC0FC					;\
 ORA #$0001					; | Turns on the Custom 0 ExAnimation.
 STA $7FC0FC					;/
-SEP #$20					; Turns back on 8-bit addressing mode.
+SEP #$20					; Turns on 8-bit addressing for the Accumulator.
 LDA #$7F					;\
 STA $86						;/ Sets the slippery level flag to half slippery.
 NOSNOWEFFECT:
@@ -1612,11 +1612,11 @@ BNE BLIZZARDCOOLDOWN				;/ Branches if the blizzard cooldown timer is not 0.
 LDA $7FAB10,x					;\
 AND #$04					; | Branches if the extra bit is not set.
 BEQ NOEFFECTREMOVAL				;/
-REP #$20					; Turns on 16-bit addressing mode.
+REP #$20					; Turns on 16-bit addressing for the Accumulator.
 LDA $7FC0FC					;\
 AND #$FFFE					; | Turns off the Custom 0 ExAnimation.
 STA $7FC0FC					;/
-SEP #$20					; Turns back on 8-bit addressing mode.
+SEP #$20					; Turns on 8-bit addressing for the Accumulator.
 STZ $86						; Sets the slippery level flag to not slippery.
 LDA #$15					;\
 STA $1DFC					;/ Sets the sound to play.
@@ -1893,21 +1893,21 @@ LDA $D1						;\
 STA !ExtraSpriteTable3				; | Stores Mario's last X position.
 LDA $D2						; |
 STA !ExtraSpriteTable4				;/
-REP #$20					; Turns on 16-bit addressing mode.
+REP #$20					; Turns on 16-bit addressing for the Accumulator.
 LDA $D1						;\
 CMP #$0041					; | Branches if Mario's X position is less than 65.
 BCC RIGHTSHIFT					;/
 CMP #$00B0					;\
 BCC CASTED					;/ Branches if Mario's X position is less than 176.
-SEP #$20					; Turns on 8-bit addressing mode.
+SEP #$20					; Turns on 8-bit addressing for the Accumulator.
 LDA #$01					;\
 STA !ExtraSpriteTable5				;/ Makes the warning signs and lightning strikes trail to the left.
 BRA CASTED					; Branches to the cast warning sign routine.
 RIGHTSHIFT:
-SEP #$20					; Turns on 8-bit addressing mode.
+SEP #$20					; Turns on 8-bit addressing for the Accumulator.
 STZ !ExtraSpriteTable5				; Makes the warning signs and lightning strikes trail to the right.
 CASTED:
-SEP #$20					; Turns on 8-bit addressing mode.
+SEP #$20					; Turns on 8-bit addressing for the Accumulator.
 JSR CALCULATEAMOUNT				; Jumps to the calculate amount routine.
 LDA !ExtraSpriteTable2				;\
 CMP $0A						; | Branches if the warning counter is the amount calculated.
@@ -2097,7 +2097,7 @@ BRA SETRESULT					; Branches to the set result routine.
 NODECIMALS:
 STZ $0C						; Clears the fractional product.
 SETRESULT:
-REP #$20					; Turns on 16-bit addressing mode.
+REP #$20					; Turns on 16-bit addressing for the Accumulator.
 LDA $4216					; Loads the product.
 ASL						;\
 ASL						; | Shifts the bits to the left 4 times.
@@ -2112,7 +2112,7 @@ LSR						; |
 LSR						; |
 LSR						; |
 LSR						;/
-SEP #$20					; Turns on 8-bit addressing mode.
+SEP #$20					; Turns on 8-bit addressing for the Accumulator.
 STA $0B						; Stores the number to the fractional product offset.
 LDA $0C						;\
 CLC						; | Adds the fractional product offset to the fractional product.
@@ -2664,7 +2664,7 @@ STA $00						;/ Loads and stores the sprite A or B flags.
 
 DYNAMICTIMER:
 LDA !AnPointer					; Loads the animation pointer x2.
-REP #$30					; Turns on 16-bit addressing for the A, X, and Y registers.
+REP #$30					; Turns on 16-bit addressing for the A, X, and Y Registers.
 AND #$00FF					; Keeps the last 8 bits.
 TAY						; Transfers the Accumulator to the Y Register.
 
@@ -2672,7 +2672,7 @@ LDA !AnFramePointer				;\
 CLC						; | Adds the starting frame to the animation pointers.
 ADC EndPositionAnim,y				;/
 TAY						; Transfers the Accumulator to the Y Register.
-SEP #$30					; Turns on 8-bit addressing for the A, X, and Y registers.
+SEP #$30					; Turns on 8-bit addressing for the A, X, and Y Registers.
 
 LDA !GlobalFlipper				;\
 EOR AnimationsFlips,y				; | Sets the flipping for each frame.
@@ -2697,7 +2697,7 @@ RTS						; Ends the code.
 
 ChangeFrame:
 LDA !AnPointer					; Loads the animation pointer x2.
-REP #$30					; Turns on 16-bit addressing for the A, X, and Y registers.
+REP #$30					; Turns on 16-bit addressing for the A, X, and Y Registers.
 AND #$00FF					; Keeps the last 8 bits.
 TAY						; Transfers the Accumulator to the Y Register.
 
@@ -2705,7 +2705,7 @@ LDA !AnFramePointer				;\
 CLC						; | Adds the starting frame to the animation pointers.
 ADC EndPositionAnim,y				;/
 TAY						; Transfers the Accumulator to the Y Register.
-SEP #$30					; Turns on 8-bit addressing for the A, X, and Y registers.
+SEP #$30					; Turns on 8-bit addressing for the A, X, and Y Registers.
 
 LDA AnimationsFrames,y				;\
 STA !FramePointer				;/ Loads the frames for the new animation.
@@ -2843,9 +2843,9 @@ tileRel: db $00,$BA,$FE,$1A,$22,$7A,$9A,$C2,$80,$88,$A0,$A8,$C0,$C8,$E0,$E8
 propRel: db $00,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01
 
 Graphics:
-REP #$10					; Turns on 16-bit addressing for the X and Y registers.
+REP #$10					; Turns on 16-bit addressing for the X and Y Registers.
 LDY #$0000					; Loads 0 into the Y Register, this time in 16-bit.
-SEP #$10					; Turns on 8-bit addressing for the X and Y registers.
+SEP #$10					; Turns on 8-bit addressing for the X and Y Registers.
 
 LDA !tileRelativePositionNormal,x		; Loads the tile relative position.
 TAY						; Transfers the Accumulator to the Y Register.
@@ -2870,7 +2870,7 @@ LDA !FramePointer				; Loads the frame pointer.
 PLX						; Pulls back the X Register.
 CLC						;\
 ADC FlipAdder,x					;/ Adds the starting frames based on the sprite's flipping.
-REP #$30					; Turns on 16-bit addressing for the A, X, and Y registers.
+REP #$30					; Turns on 16-bit addressing for the A, X, and Y Registers.
 
 AND #$00FF					; Keeps the last 8 bits.
 ASL						; Multiplies the frame pointer by 2.
@@ -2918,7 +2918,7 @@ BMI FINISHDRAWING				; Branches if the X Register is a negative value.
 CPX $0D						;\
 BCS LOOP					;/ Branches if the X Register matches the value used to end the tile drawing loop is equal or higher.
 FINISHDRAWING:
-SEP #$10					; Turns on 8-bit addressing for the X and Y registers.
+SEP #$10					; Turns on 8-bit addressing for the X and Y Registers.
 PLX						; Pulls back the X register.
 
 LDA !FramePointer				; Loads the frame pointer.

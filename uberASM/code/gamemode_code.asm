@@ -30,6 +30,7 @@ gamemode_C:
 gamemode_D:
 	RTS
 gamemode_E:
+	JSR gamemode_init_E	; Jumps to gamemode E's initial code.
 	RTS
 gamemode_F:
 	REP #$20		; Turns on 16-bit addressing mode for the Accumulator.
