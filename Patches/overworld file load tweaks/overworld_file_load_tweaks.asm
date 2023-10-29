@@ -48,6 +48,7 @@ BPL KEEPLIVES			;/ Branches if the current player has more than 0 lives.
 LDA #$04			;\
 STA $0DB4,x			; | Sets the current number of lives to 5.
 STA $0DBE			;/
+STZ $0DBC,x			; Clears the current character's reserve item.
 KEEPLIVES:
 TXA				; Transfers the X Register to the Accumulator.
 EOR #$01			; Swaps the character played.
