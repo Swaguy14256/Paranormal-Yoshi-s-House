@@ -7,6 +7,9 @@ db $0B
 org $02AC18
 db $80
 
+org $02CAFA
+db $4B,$0B
+
 org $0487E3
 db $21,$64,$20,$64
 

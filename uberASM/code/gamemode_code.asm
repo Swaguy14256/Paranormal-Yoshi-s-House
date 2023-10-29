@@ -47,6 +47,7 @@ KEEPHDMA:
 FADELIGHT:
 	LDA #$20		;\
 	TRB $0D9F		;/ Turns off HDMA channel 5.
+	STZ $06F9		; Clears the no HDMA timer.
 	RTS			; Ends the code.
 gamemode_10:
 	RTS

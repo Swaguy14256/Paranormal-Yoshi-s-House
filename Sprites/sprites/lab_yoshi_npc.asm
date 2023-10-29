@@ -598,7 +598,7 @@ BRA ReturnZ				; Branches to the Return address.
 ContinueZ:
 STZ $7B					; Sets Mario's speed to 0.
 JSR TALK				; Jumps to the facing routine.
-LDA #$00				;\
+LDA #$FE				;\
 STA $1DFB				;/ Sets the music to play. I told you that this sprite has hardcoded stuff.
 	
 LDA #!2ndMessage			;\

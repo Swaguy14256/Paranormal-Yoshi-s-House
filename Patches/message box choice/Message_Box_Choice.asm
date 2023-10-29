@@ -140,8 +140,8 @@ PLAYMUSIC1:
 	LDA #$00		;\
 	STA $7FB000		;/ Sets the music to play.
 GLOBALMUTE:
-	LDA #$0A		;\
-	STA $1DFA		;/ Mutes the music.
+	LDA #$FE		;\
+	STA $1DFB		;/ Mutes the music.
 	RTL			; Ends the code.
 MUSIC:
 	LDA #$1E		; Loads the music to play.
@@ -248,7 +248,7 @@ BOTTOMSELECTION8:
 	JSL SETMUSIC		; Jumps to the set music routine.
 	RTL			; Ends the code.
 SPEEDUPTOGGLE:
-	LDA #$0B		;\
+	LDA #$0A		;\
 	STA $1DFA		;/ Toggles the music speed up.
 	RTL			; Ends the code.
 SETMUSIC:

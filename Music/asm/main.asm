@@ -1480,12 +1480,12 @@ CheckAPU1SFXPriority:
 	;mov	y, #$00		;Default priority
 	cmp	a, #$01
 	bne	+
-	mov	y, !JumpSFX1DFAPriority		;Priority for jump SFX
+	mov	y, #!JumpSFX1DFAPriority	;Priority for jump SFX
 	bra	.gotPriority
 +
 	;cmp	a, #$04
 	;bne	+
-	mov	y, !GirderSFX1DFAPriority	;Priority for girder SFX
+	mov	y, #!GirderSFX1DFAPriority	;Priority for girder SFX
 	;bra	.gotPriority
 +
 
@@ -1545,8 +1545,10 @@ endif
 
 SpeedUpMusic:
 	mov	a, #$0a
+
 	cmp	a, $0387			;\
 	beq	NOSPEEDUP			;/ Branches if the tempo speed up has already occurred.
+	mov	!SpeedUpBackUp, a		; Backs up the tempo speed up.
 	call	SubC_7_storeTo387  ; add #$0A to tempo; zero tempo low      ;ERROR * 2
 NOSPEEDUP:
 if !noSFX = !false
@@ -1730,6 +1732,7 @@ endif
 
 .checkAPU1SFX
 if !useSFXSequenceFor1DFASFX = !false
+	bbc!1DFASFXChannel	$10, .sfxAllocAllowed
 	;Check and see if APU1 SFX is playing there via detecting $1D.
 	;APU1 SFX is playing if APU0/APU3 SFX sequence data is not playing,
 	;but $1D has a voice bit set.
@@ -1802,8 +1805,7 @@ APU1CMDJumpArray:
 	dw	PlayPauseSFX		;07
 	dw	PlayUnpauseSFX		;08
 	dw	PlayUnpauseSilentSFX	;09
-	dw	MUTEMUSIC		;0A
-	dw	SPEEDUPTOGGLE		;0B
+	dw	SPEEDUPTOGGLE		;0A
 APU1CMDJumpArrayEOF:
 endif
 
@@ -1841,6 +1843,8 @@ UnpauseMusic:
 	jmp SetFLGFromNCKValue
 
 .silent:	
+	mov a,	#$00				;\
+	mov	!SpeedUpBackUp, a		;/ Clears the tempo speed up backup.
 	mov a, #$01			;\ Set pause flag to solve issue when doing start+select quickly
 	mov !PauseMusic, a	;/
 
@@ -1853,32 +1857,25 @@ UnpauseMusic:
 	set1 $f2.4		;|
 	mov $f3, a		;/
 	bra .unsetMute
-	
-MUTEMUSIC:
-	mov	a, #$00				;\
-	mov	!PauseMusic, a			;/ Clears the pause flag.
-;	mov	!MasterVolume, a		; Sets the music volume to 0.
-;	mov	$58,a				; Sets the music fade volume to 0.
-	mov	$06, #$00			; Sets the music number to 0.
-	mov	$f2, #$5c			; Sets the DSP Register to write to.
-	mov	a, #$ff				; Loads the channels to modify.
-	eor	a, $1d				; Removes the channels occupied by sound effects.
-	mov	$f3, a				; Turns off all music channels.
-	ret					; Ends the code.
 
 SPEEDUPTOGGLE:
+	mov	a, !PauseMusic
+	bne	NOMODIFICATIONS
 	mov	a, $0387			;\
 	beq	UNMODIFIED			;/ Branches if the tempo speed up is 0.
-	bne	subtracttempo			; Branches if the tempo speed up is not 0.
+	bne	SUBTRACTTEMPO			; Branches if the tempo speed up is not 0.
 UNMODIFIED:
 	mov	a, #$0a				; Loads the tempo increase value.
+	mov	!SpeedUpBackUp, a		; Backs up the tempo speed up.
 	call	SubC_7_storeTo387		; Calls the tempo increase routine.
 	ret					; Ends the code.
-subtracttempo:
+SUBTRACTTEMPO:
 	mov	a, #$f6				; Loads the tempo increase value.
 	call	SubC_7_storeTo387		; Calls the tempo increase routine.
 	mov	a, #$00				;\
 	mov	$0387, a			;/ Clears the tempo speed up.
+	mov	!SpeedUpBackUp, a		; Backs up the tempo speed up.
+NOMODIFICATIONS:
 	ret					; Ends the code.
 
 ;The cases here are different: carry is implied cleared if jump array is
@@ -2217,6 +2214,8 @@ endif
 	mov	$5e,a						; Also MODIFIED
 	mov	!MasterVolume, #$c0          ; MasterVolume = #$C0
 	mov	$51, #$36          ; Tempo = #$36
+
+
 	cmp	$06, #$05			;\
 	beq	.KEEPECHOVOLUME			; |
 	cmp	$06, #$06			; | Branches if the music to play is the Super Star, Switch Block, or Level Complete tracks.
@@ -2253,6 +2252,18 @@ endif
 	call	EffectModifier
 	bra	L_0BA5
 ;
+MUTEMUSIC:
+	mov	a, #$00				;\
+	mov	!PauseMusic, a			;/ Clears the pause flag.
+	mov	!PlayingVoices, a		; Disables all playing voices.
+;	mov	!MasterVolume, a		; Sets the music volume to 0.
+;	mov	$58,a				; Sets the music fade volume to 0.
+	mov	$06, #$00			; Sets the music number to 0.
+	mov	$f2, #$5c			; Sets the DSP Register to write to.
+	mov	a, #$ff				; Loads the channels to modify.
+	eor	a, $1d				; Removes the channels occupied by sound effects.
+	mov	$f3, a				; Turns off all music channels.
+	jmp	L_0BE7
 L_0BA3:
 	mov	$06, a		; ???
 L_0BA5:
@@ -2304,8 +2315,12 @@ ProcessAPU2Input:
 .nothing			; 
 	clrp			;
 	mov	a, $02
-	bmi	FadeOut		
+;	bmi	FadeOut		
 	beq	L_0BE7
+	cmp	a, #$ff				;\
+	beq	FadeOut				;/ Branches if the input is 255.
+	cmp	a, #$fe				;\
+	beq	MUTEMUSIC			;/ Branches if the input is 254.
 	jmp	PlaySong             ; play song in A
 L_0BE7:
 	mov	a, $0c
@@ -3625,7 +3640,7 @@ Start:
 				; 5A22 will still have to wait a bit (6 NOPs or so)
 				; before sending any data.
 	
-;	mov	a, #$00
+	mov	a, #$00
 ;	mov	y, a
 ;	movw	$f4, ya
 ;	movw	$f6, ya

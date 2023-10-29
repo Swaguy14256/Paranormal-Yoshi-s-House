@@ -70,7 +70,7 @@ Finished:	;print pc
 		CMP $2140
 		BNE -
 ABORT:
-		PLX
+		PLX			; Pulls back the X Register.
 		PLP			; Return the processor's state back to normal
 		RTL			; Return
 
