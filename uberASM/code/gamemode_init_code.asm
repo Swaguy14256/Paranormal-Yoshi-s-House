@@ -1,16 +1,17 @@
 gamemode_init_0:
 	RTS
 gamemode_init_1:
-	LDA #$FF		;\
-	STA $0F43		; | Initializes the BGM and SFX test track numbers.
-	STA $0F44		;/
-	RTS			; Ends the code.
+	RTS
 gamemode_init_2:
 	RTS
 gamemode_init_3:
 	RTS
 gamemode_init_4:
-	RTS
+	LDA #$FF		;\
+	STA $0F43		; | Initializes the BGM and SFX test track numbers.
+	STA $0F44		;/
+	STA $0DDB		; Allows all music to restart.
+	RTS			; Ends the code.
 gamemode_init_5:
 	RTS
 gamemode_init_6:
@@ -29,8 +30,8 @@ SFXTEST:
 	DEC $0F43		; Decreases the SFX Test ID.
 	LDA $0F43		;\
 	BPL NOUNDERFLOW		;/ Branches if the SFX Test ID is positive.
-	LDA #$6D		;\
-	STA $0F43		;/ Sets the SFX Test ID to 109.
+	LDA #$74		;\
+	STA $0F43		;/ Sets the SFX Test ID to 116.
 NOUNDERFLOW:
 	JSR DRAWSFXTEXT		; Jumps to the draw SFX text routine.
 NOLEFT:
@@ -40,8 +41,8 @@ NOLEFT:
 	DEC $0F43		; Decreases the SFX Test ID.
 	LDA $0F43		;\
 	BPL NOUNDERFLOW2	;/ Branches if the SFX Test ID is positive.
-	LDA #$6D		;\
-	STA $0F43		;/ Sets the SFX Test ID to 109.
+	LDA #$74		;\
+	STA $0F43		;/ Sets the SFX Test ID to 116.
 NOUNDERFLOW2:
 	JSR DRAWSFXTEXT		; Jumps to the draw SFX text routine.
 	JSR HANDLESFX		; Jumps to the handle SFX ID routine.
@@ -51,7 +52,7 @@ NOL:
 	BEQ NORIGHT		;/
 	INC $0F43		; Increases the SFX Test ID.
 	LDA $0F43		;\
-	CMP #$6E		; | Branches if the SFX Test ID is less than 110.
+	CMP #$75		; | Branches if the SFX Test ID is less than 110.
 	BCC NOOVERFLOW		;/
 	STZ $0F43		; Sets the SFX Test ID to 0.
 NOOVERFLOW:
@@ -62,7 +63,7 @@ NORIGHT:
 	BEQ NOR			;/
 	INC $0F43		; Increases the SFX Test ID.
 	LDA $0F43		;\
-	CMP #$6E		; | Branches if the SFX Test ID is less than 110.
+	CMP #$75		; | Branches if the SFX Test ID is less than 110.
 	BCC NOOVERFLOW2		;/
 	STZ $0F43		; Sets the SFX Test ID to 0.
 NOOVERFLOW2:
@@ -120,12 +121,12 @@ HANDLESFX:
 ;CONTINUESFX:
 	LDY $0F43		;\
 	LDA SFXLIST,y		;/ Loads the sound effect indexed by the SFX Test ID.
-	CPY #$2D		;\
+	CPY #$30		;\
 	BCS NEXTPORT		;/ Branches if the SFX Test ID is 45 or higher.
 	STA $1DF9		; Sets the sound to play.
 	RTS			; Ends the code.
 NEXTPORT:
-	CPY #$37		;\
+	CPY #$3C		;\
 	BCS NEXTPORT2		;/ Branches if the SFX Test ID is 55 or higher.
 	STA $1DFA		; Sets the sound to play.
 	RTS			; Ends the code.
@@ -138,10 +139,10 @@ db $08,$09,$0A,$0B,$0C,$0D,$0E,$0F
 db $10,$11,$12,$13,$14,$15,$16,$17
 db $18,$19,$1A,$1B,$1C,$1D,$1E,$1F
 db $20,$21,$22,$23,$24,$25,$26,$27
-db $28,$29,$2A,$2B,$80
+db $28,$29,$2A,$2B,$2C,$2D,$2E,$80
 
 db $00,$01,$02,$03,$04,$05,$06,$07
-db $08,$00
+db $08,$09,$0A,$00
 
 db $00,$01,$02,$03,$04,$05,$06,$07
 db $08,$09,$0A,$0B,$0C,$0D,$0E,$0F
@@ -149,7 +150,8 @@ db $10,$11,$12,$13,$14,$15,$16,$17
 db $18,$19,$1A,$1B,$1C,$1D,$1E,$1F
 db $20,$21,$22,$23,$24,$25,$26,$27
 db $28,$29,$2A,$2B,$2C,$2D,$2E,$2F
-db $30,$31,$32,$33,$34,$35,$36
+db $30,$31,$32,$33,$34,$35,$36,$37
+db $38
 
 SFXTEXT:
 db $53,$22,$00,$0D
@@ -169,8 +171,8 @@ BGMTEST:
 	DEC $0F44		; Decreases the BGM Test ID.
 	LDA $0F44		;\
 	BPL NOUNDERFLOW3	;/ Branches if the BGM Test ID is positive.
-	LDA #$2F		;\
-	STA $0F44		;/ Sets the BGM Test ID to 47.
+	LDA #$31		;\
+	STA $0F44		;/ Sets the BGM Test ID to 49.
 NOUNDERFLOW3:
 	JSR DRAWBGMTEXT		; Jumps to the draw BGM text routine.
 NOLEFT2:
@@ -180,8 +182,8 @@ NOLEFT2:
 	DEC $0F44		; Decreases the BGM Test ID.
 	LDA $0F44		;\
 	BPL NOUNDERFLOW4	;/ Branches if the BGM Test ID is positive.
-	LDA #$2F		;\
-	STA $0F44		;/ Sets the BGM Test ID to 47.
+	LDA #$31		;\
+	STA $0F44		;/ Sets the BGM Test ID to 49.
 NOUNDERFLOW4:
 	JSR DRAWBGMTEXT		; Jumps to the draw BGM text routine.
 	JSR HANDLEBGM		; Jumps to the handle BGM ID routine.
@@ -191,7 +193,7 @@ NOL2:
 	BEQ NORIGHT2		;/
 	INC $0F44		; Increases the BGM Test ID.
 	LDA $0F44		;\
-	CMP #$30		; | Branches if the BGM Test ID is less than 48.
+	CMP #$32		; | Branches if the BGM Test ID is less than 50.
 	BCC NOOVERFLOW3		;/
 	STZ $0F44		; Sets the BGM Test ID to 0.
 NOOVERFLOW3:
@@ -202,7 +204,7 @@ NORIGHT2:
 	BEQ NOR2		;/
 	INC $0F44		; Increases the BGM Test ID.
 	LDA $0F44		;\
-	CMP #$30		; | Branches if the BGM Test ID is less than 48.
+	CMP #$32		; | Branches if the BGM Test ID is less than 50.
 	BCC NOOVERFLOW4		;/
 	STZ $0F44		; Sets the BGM Test ID to 0.
 NOOVERFLOW4:
@@ -248,13 +250,19 @@ BGMNUMBERLOOP:
 	RTS			; Ends the code.
 HANDLEBGM:
 	LDA $0F44		;\
-	STA $1DFB		;/ Sets the music to play.
+	CMP #$30		; | Branches if the BGM Test ID is less than 49.
+	BCC NOBGMOFFSET		;/
+	CLC
+	ADC #$CE
+NOBGMOFFSET:
+	STA $1DFB		; Sets the music to play.
 	RTS			; Ends the code.
 BGMTEXT:
 db $53,$22,$00,$0D
 db $0B,$28,$10,$28,$16,$28,$78,$28
 
 gamemode_init_B:
+	STZ $0DDB		; Only allows some music to restart.
 	RTS
 gamemode_init_C:
 	STZ $0DA1		; Resets the Mario palette index.
@@ -288,12 +296,20 @@ PLAYERLOOP:
 	BCS MAXLIVES		;/
 	DEX			; Decreases the X Register.
 	BPL PLAYERLOOP		; Loops the player loop until it is negative.
-	STZ $0F3D		; Clears the 99 lives flag.
+;	STZ $0F3D		; Clears the 99 lives flag.
 	BRA FINISHSAVE		; Branches to the finish save routine.
 MAXLIVES:
 	LDA #$01		;\
 	STA $0F3D		;/ Sets the 99 lives flag.
 FINISHSAVE:
+	LDX #$03		; Loads a loop count of 3.
+	LDA #$00		; Loads 0.
+	CLC			; Clears the carry flag.
+COMPLETIONLOOP:
+	ADC $0F3A,x		;\
+	STA $0DDC		;/ Adds each completion flag to the total number of completions.
+	DEX			; Decreases the X Register.
+	BPL COMPLETIONLOOP	; Loops the completion loop until it is negative.
 	RTS			; Ends the code.
 gamemode_init_F:
 	RTS
@@ -322,6 +338,8 @@ gamemode_init_12:
 NOITEM:
 	SEP #$20		; Turns on 8-bit addressing mode for the Accumulator.
 	STZ $0DC2		; Removes Mario's reserve item.
+	LDA.B #$01                
+	STA.W $0DB1
 	RTS			; Ends the code.
 
 MARIOPALETTEINDEX: fillbyte $00 : fill $0025
@@ -337,8 +355,23 @@ db $01,$01,$00,$00,$01,$00,$00,$01
 db $01,$00,$00,$01
 fillbyte $00 : fill $01C3
 
+SFXECHOINDEX:  fillbyte $06 : fill $0025
+db $05,$05,$05,$05,$05,$05,$05,$05
+db $05,$05,$05,$05,$05,$05,$05,$06
+db $05,$05,$05,$05,$05,$05,$06,$05
+db $05,$05,$05,$05,$05,$05,$05,$05
+db $05,$05,$05,$05,$05,$05,$05
+fillbyte $06 : fill $00B8
+db $05,$05,$05
+fillbyte $06 : fill $00F9
+
 gamemode_init_13:
-	RTS
+	REP #$10		; Turns on 16-bit addressing mode for the X and Y Registers.
+	LDX $010B		;\
+	LDA SFXECHOINDEX,x	; | Loads the sound effect echo settings for each level.
+	STA $1DFA		;/
+	SEP #$10		; Turns on 8-bit addressing mode for the X and Y Registers.
+	RTS			; Ends the code.
 gamemode_init_14:
 	RTS
 gamemode_init_15:

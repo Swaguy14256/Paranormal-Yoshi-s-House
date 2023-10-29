@@ -52,8 +52,8 @@ incsrc header.asm
 !ExtraSpriteTable4 = $1F6D,x			; A forth extra sprite table used from unused RAM. Make sure that the RAM is free and 12 bytes long. This sprite table contains the high byte of Mario's last X Position.
 !ExtraSpriteTable5 = $1F79,x			; A fifth extra sprite table used from unused RAM. Make sure that the RAM is free and 12 bytes long. This sprite table determines which direction of Mario to place the warning signs and lightning bolts on. It is also used to determine if the WMS Magician and Bob have done their lightning attack at least once.
 
-!JumpSFX = $01					; The jump sound. AddmusicK users must change this to something else unless they fix the original jump sound effect by themselves.
-!JumpSFXBank = $1DFA				; The jump sound bank. Once again, AddmusicK users must change this to something else or else glitches will happen unless the original jump sound effect is properly fixed.
+!JumpSFX = $01					; The jump sound. AddmusicK 1.0.8 users or lower must change this to something else unless they fix the original jump sound effect by themselves.
+!JumpSFXBank = $1DFA				; The jump sound bank. Once again, AddmusicK 1.0.8 users or lower must change this to something else or else glitches will happen unless the original jump sound effect is properly fixed.
 
 !FireballNumber = $15				; The custom sprite number for the fireballs the WMS Magician and Bob shoot.
 
@@ -65,7 +65,7 @@ incsrc header.asm
 !TimerFrameCounterBackup = $06FB		; A backup of the timer frame counter for pausing the time limit.
 
 !BattleMusic = $2B				; The music to play when Bob initiates the battle.
-!MuteMusic = $00				; The music to play when Bob loses all of his health.
+!MuteMusic = $FE				; The music to play when Bob loses all of his health.
 !AreaMusic = $2E				; The music to play after Bob dies.
 
 LDA #$04					;\
@@ -489,6 +489,12 @@ NOFLICKING:
 RTS						; Ends the code
 
 DIENOW:
+LDA $7FAB10,x					;\
+AND #$04					; | Branches if the extra bit is not set.
+BEQ NOMUTE					;/
+LDA #!MuteMusic					;\
+STA $1DFB					;/ Mutes the music.
+NOMUTE:
 LDA #$0F					;\
 STA $1594,x					;/ Sets the sprite state to dying.
 RTS						; Ends the code.
@@ -900,8 +906,8 @@ BEQ JUMPING					;/
 LDA #$02					;\
 JSR QUEUEANIMATION				;/ Queues the jumping animation.
 JUMPING:
-LDA #$01					;\
-STA $1DFA					;/ Sets the sound to play.
+LDA #!JumpSFX					;\
+STA !JumpSFXBank				;/ Sets the sound to play.
 STA $187B,x					; Sets the sprite sub-phase to jumping and charging.
 LDA #$07					;\
 STA $1558,x					;/ Sets the jump timer.
@@ -1342,8 +1348,8 @@ CMP #$02					; | Branches if the jumping animation is queued.
 BEQ ASCENDJUMPING				;/
 LDA #$02					;\
 JSR QUEUEANIMATION				;/ Queues the jumping animation.
-LDA #$01					;\
-STA $1DFA					;/ Sets the sound to play.
+LDA #!JumpSFX					;\
+STA !JumpSFXBank				;/ Sets the sound to play.
 LDA #$96					;\
 STA $AA,x					;/ Sets the sprite's Y speed.
 ASCENDJUMPING:
@@ -1373,8 +1379,8 @@ STA !ExtraSpriteTable2				; | Offsets the sprite's Y position and stores it as t
 LDA $14D4,x					; |
 SBC #$00					; |
 STA !ExtraSpriteTable3				;/
-LDA #$01					;\
-STA $1DFA					;/ Sets the sound to play.
+LDA #!JumpSFX					;\
+STA !JumpSFXBank				;/ Sets the sound to play.
 LDA #$96					;\
 STA $AA,x					;/ Sets the sprite's Y speed.
 WAITFORGROUND:
@@ -2466,8 +2472,6 @@ DEATHMESSAGES: db $01,$02,$01,$01,$01
 
 DEATH2:
 LDX $15E9					; Reloads the sprite index.
-LDA #!MuteMusic					;\
-STA $1DFB					;/ Mutes the music.
 LDA $154C,x					;\
 BNE WAITFORDEATH2				;/ Branches if the invincibility timer is not 0.
 LDA #$01					;\
@@ -2529,7 +2533,7 @@ STZ !ExtraSpriteTable1				; Resets the thunder counter.
 RTS						; Ends the code.
 DEATHTHROES:
 LDA $187B,x					;\
-CMP #$03					; | Branches if the sprite sub-state is death throes.
+CMP #$03					; | Branches if the sprite sub-state is show death effects.
 BCS DEATHEFFECTS				;/
 TAY						; Transfers the Accumulator to the Y Register.
 LDA $1558,x					;\

@@ -53,13 +53,14 @@
 	<ul>
 	<li>"added my "Better Pause" fix to prevent songs that use long notes/legato from breaking when pausing. Also removed Medic's pause fix from 1.0.7 since it's obsoleted by this change. Do note that a new SFX was added in slot $2C in $1DF9, make sure you don't change it!" - KevinM</li>
 	</ul>
-	<h2>Version 1.0.9 - 2023-02-23</h2>
+	<h2>Version 1.0.9 - 2023-08-28</h2>
 	This changelog is organized a little bit differently because of the massive number of modifications made to it.
 	<ul>
 	<li>Overall
 		<ul>
 		<li>"Upgraded to Visual Studio 2019." - Atari 2.0</li>
-		<li>"The asar version has been updated from 1.33b to 1.81. The code has also been updated accordingly to account for any changes and deprecations that have occurred between these versions." - Atari 2.0 and KungFuFurby</li>
+		<li>"The asar version has been updated from 1.33b to 1.81. The code and DLL integrations have also been updated accordingly to account for any changes and deprecations that have occurred between these versions." - Atari 2.0 and KungFuFurby</li>
+		<li>"Fixed a bug where the DLL file would never be used because asar was being called before the lookup would occur."- Atari 2.0</li>
 		<li>"This version makes AddmusicK's core compiler cross-platform." - HertzDevil and nyanpasu64</li>
 		</ul>
 	</li>
@@ -77,18 +78,22 @@
 		<ul>
 		<li>"Fixed a bug where the Yoshi Drums were not being disabled when Mario teleports into a room without Yoshi without disembarking first through a cutscene or otherwise. <b>This does add a new hijack at $02A763  in the ROM in order to do this, though, so be careful...</b>" - KungFuFurby</li>
 		<li>"Fixed an issue with non-standard stage/boss clear fanfares when the P-Switch/Starman theme is active." - KevinM</li>
+		<li>"Fixed a bug where setting the P-Switch and/or Starman song IDs to zero would result in the song ID being zeroed out on every frame, preventing user code from modifying the song ID while a P-Switch and/or Star is going off." - KevinM</li>
 		<li>"This version prevents garbage from randomly appearing during Submap transitions." - Barrels O' Fun</li>
 		<li>"This version adds the option to have the P-Switch and Starman themes retrigger when recollecting a star or pressing another P-Switch. The option is enabled by default because it replicates vanilla SMW's behavior, though it can be turned off to replicate its behavior on AddmusicK 1.0.8 and earlier." - JUMP Team, SimFan96, KevinM, Anas and KungFuFurby</li>
 		<li>"Fixed a bug when pressing a P-Switch as the star timer was running out would retrigger the Starman theme until the timer completely ran out, then ran the P-Switch theme normally." - JUMP Team, SimFan96, KevinM, Anas and KungFuFurby</li>
 		<li>"Fixed a bug where the Welcome song would not play in a new save file, and instead the default level music played." - KungFuFurby</li>
 		<li>"Merged several patches together in tweaks.asm to resolve a conflict between them. <b>The code modifications at $9723-$973F have been merged, which resulted in a few cuts due to a conflict: specifically, writing !Title to $9724 (overwritten by writing !Welcome to the same location) and skipping Bowser fight music at $9734 (overwritten by a BNE opcode to $9738 on a different patch)</b>" - KungFuFurby</li>
+		<li>"Added some fastrom-related speedups for explicit JML/JSls when not using the SA-1." - KevinM</li>
+		<li>"Local songs are no longer reloaded while playing a level if they are triggered after playing a global song, provided that the local song ID that was last used still matches the ID requested." - lx5 and KungFuFurby</li>
 		</ul>
 	</li>
 	<li>Built-In Original Songs
 		<ul>
 		<li>"Added #spc tags to every global song." - KevinM</li>
-		<li>"Global songs have better optimization, saving 0x44 (68) bytes total." - KevinM</li>
+		<li>"Global songs have better optimization, saving 0xA3 (163) bytes total." - KevinM</li>
 		<li>"Fixed wrong note that played in "Bonus End" after the song was supposed to be over." - KevinM</li>
+		<li>"Fixed a note that was not properly keyed off after the goal whistle in the "Boss Clear" song." - KevinM</li>
 		<li>"Redid the Bowser Defeated and Bowser Zoom Out songs for better accuracy (replicating some of the bugs in the original song in the process) and to remove a couple of fractional note length rests in the process." - KungFuFurby</li>
 		</ul>
 	</li>
@@ -166,9 +171,11 @@
 	<li>SPC & ROM Compilation
 		<ul>
 		<li>"All user-redefinable variables now have a new home in asm/UserDefines.asm. This allows both SNES-side and SPC-side code to share defines put here." - KungFuFurby</li>
+		<li>"All user-redefinable variables no longer use the # character in them for easier use in conditional logic. This is instead handled in the ASM files themselves." - KungFuFurby</li>
 		<li>"Added the ability to filter out sound effects and the playback code through !noSFX in asm/UserDefines.asm." - KungFuFurby</li>
 		<li>"Global songs' echo delay values now act as the minimum echo buffer size to allocate a local song's, and therefore are now tracked to prevent memory overflows caused by a global song's echo buffer being too large, as opposed to a local song's." - KungFuFurby</li>
 		<li>"Made sample filtering more consistent between SPCs and ROMs by factoring in the user individually picking samples from sample groups (and thus inheriting their important flags), as well as having all user-defined samples be important." - KungFuFurby</li>
+		<li>"Fixed a bug where duplicate samples were being loaded in the same song when the important marker was set, causing the filesize of the song to increase." - KungFuFurby</li>
 		<li>"Fixed a serious bug where mixing .bnk and .brr files between songs was causing the entire ROM to fail to include the soundtrack due to an exception occurring." - KungFuFurby</li>
 		<li>"Fixed a false positive in detecting AddmusicM when the filesize of the sound driver + sound effects was $xx52 bytes. Now the entire RATS tag is scanned to avoid this situation." - KungFuFurby</li>
 		<li>"SPC files no longer have a one-byte stack underflow when being generated." - KungFuFurby</li>
@@ -198,6 +205,22 @@
 		<li>"Fixed a conversion bug from AddmusicM where the transposition values were not being overwritten by the hard-coded instrument transposition table." - KungFuFurby</li>
 		<li>"Fixed a bug where the #pad command was only supporting two hex digits with #am4 songs." - KungFuFurby</li>
 		<li>"Revamped the anticipation gain/remote gain conversions due to the original design of the remote codes not being compatible with both of them running at the same time. Two reserved remote code events (5 and 6, of which 5 was originally reserved in the first place) are now used that can be used at the same time (and come with a feature to replicate the instrument restoration on key on without having to use a third remote code event), with two additional ones also created that can be used outside of these conversions." - KungFuFurby</li>
+		</ul>
+	</li>
+	</ul>
+	<h2>Version 1.0.10 - 2023-10-22</h2>
+	<ul>
+	<li>Gameplay
+		<ul>
+		<li>"Split the Castle Destruction fanfare and Welcome songs into separate defines. Now they can use separate song IDs as needed: in Vanilla SMW they used the same ID, so they're still defined with matching IDs in the default settings." - KungFuFurby</li>
+		<li>"Added a user define to allow the Bowser fight music to override the default level music upon loading the Bowser fight." - KungFuFurby</li>
+		<li>"Added a user define to allow the Welcome music to override the default level music upon loading the intro level upon loading a new save file." - KungFuFurby</li>
+		<li>"Fixed a bug where the Yoshi Drum Hijack were conflicting with other SNES-side patches that used the PLB and RTL opcodes in this area." - KungFuFurby</li>
+		</ul>
+	</li>
+	<li>SPC & ROM Compilation
+		<ul>
+		<li>"Fixed a regression where duplicate samples were being assigned EMPTY.brr whereas they are expecting to still be the same sample. Now they use duplicate pointers so that they can be referred to at either internal sample ID. This also means that pre-existing cases from the sample groups will no longer have duplicate sample data loaded, meaning less memory consumption." - KungFuFurby</li>
 		</ul>
 	</li>
 	</ul>

@@ -199,28 +199,50 @@ LIGHTTABLE:
 db $80,$08,$60,$08,$00
 
 levelinit32:
-	RTS
+BACKGROUNDCOLORHDMA:
+	REP #$20		; Turns on 16-bit addressing mode.
+	LDA #$3202		;\
+	STA $4330		;/ Sets the mode and registers for channel 3.
+	LDA #$0F5E		;\
+	STA $4332		;/ Loads the red and green background color HDMA values from a RAM address.
+	PHK			;\
+	PLY			; | Sets the bank byte of the table.
+	STY $4334		;/
+	LDA #$3200		;\
+	STA $4360		;/ Sets the mode and registers for channel 6.
+	LDA #$0F65		;\
+	STA $4362		;/ Loads the blue background color HDMA values from a RAM address.
+	STY $4364		; Sets the bank byte of the table.
+	SEP #$20		; Turns on 8-bit addressing mode.
+	LDA #$48		;\
+	TSB $0D9F		;/ Turns on HDMA channels 3 and 6.
+	RTS			; Ends the code.
 levelinit33:
-	RTS
+	JSR BACKGROUNDCOLORHDMA	; Jumps to the background color HDMA routine.
+	RTS			; Ends the code.
 levelinit34:
 	RTS
 levelinit35:
 	RTS
 levelinit36:
-	RTS
+	JSR BACKGROUNDCOLORHDMA	; Jumps to the background color HDMA routine.
+	RTS			; Ends the code.
 levelinit37:
 	RTS
 levelinit38:
 	RTS
 levelinit39:
-	RTS
+	JSR BACKGROUNDCOLORHDMA	; Jumps to the background color HDMA routine.
+	RTS			; Ends the code.
 levelinit3A:
-	RTS
+	JSR BACKGROUNDCOLORHDMA	; Jumps to the background color HDMA routine.
+	RTS			; Ends the code.
 levelinit3B:
 	RTS
 levelinit3C:
 	RTS
 levelinit3D:
+	JSR BACKGROUNDCOLORHDMA	; Jumps to the background color HDMA routine.
 	STZ $5C			; Resets a message timer.
 	RTS			; Ends the code.
 levelinit3E:
@@ -646,7 +668,14 @@ levelinit102:
 levelinit103:
 	RTS
 levelinit104:
-	RTS
+	LDA $13CE		;\
+	BEQ NOMIDPOINT		;/ Branches if no midpoints have been obtained.
+	LDX $13BF		;\
+	LDA $1EA2,x		; | Sets the level's midway point.
+	ORA #$40		; |
+	STA $1EA2,x		;/
+NOMIDPOINT:
+	RTS			; Ends the code.
 levelinit105:
 	RTS
 levelinit106:

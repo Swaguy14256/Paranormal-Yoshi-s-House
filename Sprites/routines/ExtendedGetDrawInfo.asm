@@ -2,7 +2,8 @@
 ; Gets the OAM index to be used, deletes when off screen, etc.
 
 
-	LDA.l .OAMPtr,x
+;	LDA.l .OAMPtr,x
+	LDA $1869		; Loads the OAM index for extended sprites.
 	TAY
    
 .noIndex

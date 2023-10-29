@@ -490,7 +490,7 @@ DOORSMOKELOOP:
 	DEX				; Decreases the X Register.
 	BPL DOORSMOKELOOP		; Loops the door smoke loop until it is -1.
 	INC $7C				; Increases the level state.
-	LDA #$36			;\
+	LDA #$38			;\
 	STA $1DFC			;/ Sets the sound to play.
 	LDA #$1F			;\
 	STA $06FA			;/ Sets door smoke timer.
@@ -793,7 +793,7 @@ SETUPWARNINGANIMATION:
 ENDWARNINGDRAWING:
 	RTS				; Ends the code.
 
-CLUSTEROAM: db $10,$14,$18,$1C,$30,$34,$38,$3C,$40,$44,$48,$4C,$80,$84,$88,$8C,$B0,$B4,$B8,$BC
+CLUSTEROAM: db $70,$74,$78,$7C,$80,$84,$88,$8C,$90,$94,$98,$9C,$A0,$A4,$A8,$AC,$B0,$B4,$B8,$BC
 
 CLUSTERDRAWING:
 	REP #$20			; Turns on 16-bit addressing mode for the Accumulator.

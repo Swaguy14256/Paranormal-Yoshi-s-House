@@ -1,4 +1,4 @@
-!FreeSpace = $3D8000 
+!FreeSpace = $1D8000
 
 org !FreeSpace
 

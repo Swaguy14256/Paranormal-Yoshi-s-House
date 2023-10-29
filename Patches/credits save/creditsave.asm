@@ -106,7 +106,7 @@ CMP #$62		; | Branches if one of the players has 99 lives.
 BCS MAXLIVES		;/
 DEX			; Decreases the X Register.
 BPL MAXLIVESLOOP	; Loops the max lives loop until it is -1.
-STZ $0F3D		; Clears the max lives completion flag.
+;STZ $0F3D		; Clears the max lives completion flag.
 BRA FINISHSAVE		; Branches to the finish save routine.
 MAXLIVES:
 LDA #$01		;\
