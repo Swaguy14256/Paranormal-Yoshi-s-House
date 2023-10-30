@@ -1,0 +1,325 @@
+Paranormal Yoshi's House - Swaguy14256
+Version: 1.0.0 (Initial Release)
+
+====================
+0. Table Of Contents
+====================
+
+0. Table Of Contents
+1. Introduction
+2. Story
+3. Features
+4. Requirements
+5. Setup
+6. Controls
+7. Notes
+8. Tested Devices And Emulators
+9. Version History
+10. Glitches
+11. Troubleshooting
+12. (Potential) Frequent Questions
+13. Bonus Items
+14. Miscellaneous
+
+===============
+1. Introduction
+===============
+
+Thank you for downloading Paranormal Yoshi's House. Please read this text document before playing this hack. It contains information on controls, and what to expect from this hack. It also contain whatever questions you may have regarding this hack.
+
+========
+2. Story
+========
+
+After the events of Super Mario Bros. 3, Mario, Luigi, and Princess Toadstool go on a vacation to Dinosaur Land. The Yoshis, anticipating the arrival of the trio, decide to have a celebration party at Yoshi's House. However, upon the trio's arrival, someone, whom the Yoshis call Bob, causes trouble within Yoshi's House. Therefore, the solution would be for Yoshi to ask Mario and Luigi to help deal with this problem.
+
+===========
+3. Features
+===========
+
+- 1 level and exit, consisting of 4 parts
+- Custom graphics
+- Custom music
+- Custom ASM
+- (Planned) Box art, cartridge sticker, and instruction booklet, because that is what real SNES games come with, along with other inserts like the precautions booklet and promotional flyers and posters
+
+The .zip file should contain the BPS patch, this text file, (soon) an image of the box art, all dimensions included, (soon) the cartridge sticker, front and end label, and (soon) the instruction booklet. Do not reupload this .zip with the contents changed of modified, except for maybe replacing the BPS patch included with patched ROM. (Only do this on ROM hosting sites, where all risks are on the third party uploader.)
+
+===============
+4. Requirements
+===============
+
+1. An untrimmmed, unmodified Super Mario World ROM (US region only).
+2. A computer running Windows, macOS, Linux, or a way to apply BPS patches.
+3. A method to play the ROM: SNES flash cartridges, emulators, etc.
+
+========
+5. Setup
+========
+
+To make a copy of Paranormal Yoshi's House, you need to have a copy of a clean US region Super Mario World ROM. You are on your own to find one, using whatever means you have. Japanese and PAL ROMs are not supported.
+
+After you obtain your .smc or .sfc file of Super Mario World, extract the BPS patch from this .zip somewhere on your computer. Next, run Floating IPS by either running the program itself, or from the BPS patch itself, provided you set Floating IPS to open .bps files by default.
+
+Follow the instructions on Floating IPS, and you should end up with a patched SMC or SFC file.
+
+If you cannot run Floating IPS, find a way to apply BPS patches to files on your operating system. If you are on macOS or Linux, you may have to use Wine to run Floating IPS.
+
+===========
+6. Controls
+===========
+
+Title Screen Demo:
+A, B, X, Y, Start, Or Select Buttons	- Bring up the file select menu
+
+File And Player Select Menu:
+Up, Down Or Select Button		- Navigate the menu
+Left Or Right				- Navigate the sound or music test
+L Or R Buttons				- Navigate the sound or music test, and play the sound effect or music
+X Or Y Buttons				- Go back to the file select menu
+A, B, Or Start Buttons			- Confirm selection
+
+
+World Map:
+Control Pad				- Move Mario or Luigi on the map, navigate the save prompt or continue screen
+A Button				- Enter level, confirm save prompt or continue screen selection
+B Button				- Enter level, give one of Luigi's lives to Mario (2 players only)
+X Button				- Enter level
+Y Button				- Enter level, give one of Mario's lives to Luigi (2 players only)
+L Or R Buttons				- Bring up the lives exchange prompt (2 players only)
+Select Button				- Bring up the save prompt, navigate the save prompt
+Start Button				- Confirm save prompt or continue screen selection, exit the lives exchange prompt (2 players only)
+
+Level:
+Left or Right				- Move Mario or Luigi, fly with cape, turn around
+Up					- Look up, enter doors, climb, talk to Yoshis and Birdos
+Down					- Crouch, slide (on hills), climb
+A Button				- Spin jump, swim, dismount Test Yoshi, exit message box
+B Button				- Jump, swim, exit message box
+X Or Y Buttons				- Dash, shoot fireballs, exit message box, carry and release items, extend Test Yoshi's tongue, spit items (when in Test Yoshi's mouth), change direction while flying
+L Or R Buttons				- Scroll screen left or right
+Start					- Pause game, exit message box
+Select					- Use reserve item, exit completed level (while paused), exit message box
+
+Note: There are other moves that can be done. They are explained by various characters that can be talked to.
+
+========
+7. Notes
+========
+
+- Mario and Luigi can exit Yoshi's House at the entrance by going to either side of the screen.
+- The Yoshis and Birdos will give you hints. Refusing to talk to them may make things a lot more complicated than they need to be.
+- Some areas have a time limit. Most cases, running the time limit results in an instant life loss.
+- If you enter Yoshi's bathroom before defeating Bob, wait until the time limit reaches 0, and you will exit out of it.
+- The soup pot in Yoshi's kitchen will damage Mario and Luigi if they jump into it.
+- After completing the game, you can listen to the game's sountrack in Yoshi's labratory. Talk to White Yoshi for instructions on how to use the music player.
+- Blocks with Mario's head can be passed through, but not if Mario or Luigi are on Test Yoshi.
+- The P-Switch Block in Yoshi's money vault varies on Mario or Luigi's current transformation. The ones in Yoshi's basement do not.
+- Cape Mario or Cape Luigi can defeat Bob's fireballs with a spin attack.
+- Press L and R during the flying or Turn Block sections in the basement to restart, in case you screw up and make it impossible to progress further.
+- You need 100 coins to enter Yoshi's furnace room.
+- There is a room in Yoshi's basement that takes away any coins you currently have. These coins cannot be used to enter Yoshi's furnace room.
+- There is a 3-UP Moon hidden in Yoshi's basement.
+- In the outskirts of Yoshi's backyard, the coin counter caps at 99 coins. That is to prevent you from undoing all your progress since more than 99 coins can be collected in the outskirts.
+- There are 5 Dragon Coins and a hidden 1-UP Mushroom in the backyard outskirts.
+- All collectables cannot be obtained after defeating Bob. That said, consider exploring the backyard outskirts after defeating Bob.
+- Bob's snowflakes can be melted with fireballs. Also, Bob's rocks can be removed using a spin attack.
+- Bob will always cast lighting on you at least once. That way, you should not risk running the time limit because Bob did not cast his lightning attack, which is required to defeat him.
+- The reserve item will disappear in certain situations. It cannot be recovered.
+- Bob's attack pattern is as follows:
+	- Walk, shoot fireballs in place, jump and shoot fireballs, or rapidly shoot fireballs back and forth.
+	- Fly into the air.
+	- Fly and cast blizzards, Earthslides, and lightning.
+	- Fall down.
+  During phases 1 and 3, Bob attacks 14 times.
+- What attack Bob does in phases 1 and 3 are all movement and time based. Whatever movements you do will affect Bob's next attack. This is done at the START of Bob's current attack. This will make Bob a bit tricky to deal with. It should be possible; this hack was tested without savestates. (Obviously it should have been; the game would be impossible to complete on consoles.)
+- Jumping on Bob while he is on the ground will cause him to counterattack by shooting 2 fireballs above him. It will hurt if you were not spin jumping.
+- In the future, there will be a completion aspect to this hack. This will involve some objectives being met and completed. They are:
+	- Complete the game.
+	- Get all Dragon Coins in Yoshi's House.
+	- Get the 3-UP Moon in Yoshi's House.
+	- Find the hidden 1-UP in Yoshi's House.
+	- Complete the game with at least one player having 99 lives.
+  Completing the 1st objective will put a star next to the exit counter, while completing objectives 2-5 will upgrade the appearance of the exit counter. Completing 1 of those objectives will make the exit counter bronze, completing 2 of those objectives will make it silver, completing 3 of those objectives will make it gold, and completing all 4 of those objectives will make it platinum.
+  The last objective can be obtained but then lost if you load the save file and lose a life with the current character that has 99 lives. If both Mario and Luigi have 99 lives, both need to have 98 or fewer lives for the last objective to be revoked.
+- The maximum score that can be obtained is 9,999,999 points. There is no real easy way to do this, nor is there any completion for doing this, but this is for those ultra completionists... which I am one of those. *groan*
+- Copying files will be implemented in a future version, which is simply so you can fill all 3 files with the same data. Overwritten files will not be recoverable once the copied file is pasted over.
+- Another planned feature is to play as EITHER Mario or Luigi. In 1 player games, this determines who will be in control. In 2 player games, this will determine whether player 1 will go first, or player 2 will go first.
+
+===============================
+8. Tested Devices And Emulators
+===============================
+
+Emulators:
+- Snes9x: Works almost perfectly, the scanline glitch on consoles and bsnes is not present
+
+- bsnes: Works perfectly
+
+- ares: Unknown, possibly similar results to bsnes
+
+- Mesen2: Unknown
+
+- BizHawk: Unknown
+
+Flash Cartridges:
+- SUPER EVERDRIVE X5: Unknown, very likely the same results as the FXPAK Pro.
+
+- SUPER EVERDRIVE X6: Unknown, very likely the same results as the FXPAK Pro.
+
+- FXPAK Pro: Works perfectly
+
+==================
+9. Version History
+==================
+
+Version 1.0.0
+- Initial release.
+
+=====================
+10. Glitches/Oddities
+=====================
+
+- Sound effects may occasionally not play.
+- The left and right blocks in Yoshi's basement cause Mario and Luigi to move faster than their own fireballs.
+- Playing SFX numbers 44 and 57 causes BGM numbers 1-9 to never play in the title screen sound test.
+- Slowdown can occur because of the Yoshi and Birdo NPCs, being dynamic sprites.
+- The Layer 3 messages can glitch for a single frame.
+- On bsnes and real consoles, the top left of the Layer 3 background glitches slightly in some cases. As far as I know, it has to do with mistimings involving the PPU, which draws on the display using electron beams.
+- Certain actions can cause the graphics for the Yoshi and Birdo NPCs to glitch. Usual causes are Layer 3 messages or entering doors.
+- In the lab, playing music using the music block may cause some color flickering.
+- When Bob dies or initiates his battle, the screen may flicker a bit when changing music.
+- When playing music track 47 (which is Chrono Trigger - At The Bottom Of Night in the music player), some sound effects are flat out incorrect due to missing instrument samples.
+
+===================
+11. Troubleshooting
+===================
+
+1. The game crashes at any point.
+---------------------------------
+If you are playing on an emulator, check which one you are using. If you are using an emulator not listed in the ones tested with, you should really consider changing to one listed.
+
+If you are playing on any of the mentioned compatible flash cartridges, try to back up and format your SD Card.
+
+If either of these 2 suggestions do not fix your problem, please send a message to sm64swaguy14256@gmail.com. A screenshot or recording of the crash is very much preferred, as it shows me WHERE this happens. Please also include a detailed set of instructions on how to reproduce the crash.
+
+2. The game is slow!
+--------------------
+This usually means that your computer is too weak to run SNES emulators. This should not be the case unless your computer is from the prehistoric ages. Nevertheless, below list some fixes.
+
+TBD
+
+If there is still slowdown, then that is just simply because you are in an area where the game's performance does in fact slow down. There is nothing else you can do about it.
+
+3. The checksum was reported incorrect by the emulator.
+-------------------------------------------------------
+Your ROM was not clean, or you did not apply the BPS patch properly.
+
+Please take note that only US ROMs are supported; Japanese and PAL ROMs have never been supported. Games other than Super Mario World do not work.
+
+==================================
+12. (Potential) Frequent Questions
+==================================
+
+1. "How do I play this hack? What do I need to do?"
+---------------------------------------------------
+I stated in this text file exactly what you need to do. Please read the setup section.
+
+2. "Why does my stored item disappear in certain areas?"
+--------------------------------------------------------
+The SNES can only display 256 colors in most scenarios. These 256 colors are split across 16 palettes containing 16 colors. Super Mario World levels do not have support for more than 256 colors, and the Yoshi graphics used contain a lot of colors. Sprite tiles on the SNES can only have 15 colors, plus transparency. The problem is that the Yoshi graphics use more than 16 colors, so 2 palettes have to be used to display every color. In some cases, the colors on the stored item do not display correctly, so rather than trying to fit those colors, it was easier to remove the stored item to prevent palette conflicts.
+
+3. "This section/puzzle is impossible. How do I get past it?"
+-------------------------------------------------------------
+No elements of this hack are impossible, assuming you are doing things correctly of course. The hack was tested multiple times, so try to attempt the part you are struggling at in a different fashion (for example, using a spin jump instead of a regular jump). If you are still struggling, either, take a look at the walkthrough for this game, watch someone else play the game, or message me. In the last case, I will help out.
+
+4. "Did you program/make a lot of the things in this game yourself?"
+--------------------------------------------------------------------
+Most of the custom ASM code was done by others, who are listed in the end credits of this hack. The short answer is, no. The long answer is, there are things I coded by myself, including:
+
+- The animations for the Yoshis and Birdos.
+- All the blocks and sprites in the lab.
+- The Gold Mushroom in Yoshi's bedroom, and other simple sprites.
+- 99% of all the level specific ASM and gamemode specific ASM.
+- The Bob boss.
+- The cutscenes.
+- Many tweaks done to the original Super Mario World game engine.
+- Tweaks done to the music engine.
+- Many simple custom blocks.
+- Certain edits made to external resources to make them compatible with this hack.
+
+5. "Can I use Paranormal Yoshi's House as a base for my hack?"
+--------------------------------------------------------------
+Sure, but it is not recommended you do so. There are many code changes to the hack, and because the hack uses uberASM, various glitches can occur because the parts of the game that are affected rely on the hack staying the same as it is. Really, I highly recommend that if you DO want to make a hack based off the game, download the resources used for the game, and adjust accordingly. You will need some ASM knowledge to make a proper hack based off of it.
+
+6. "Is the source code available?"
+----------------------------------
+It is! You can view the source code at https://github.com/Swaguy14256/Paranormal-Yoshi-s-House. Just keep in mind that you can only view it, not make edits or changes to the files in the repository.
+
+7. "Why does the game not work on the emulator I am using?"
+-----------------------------------------------------------
+If Paranormal Yoshi's House does not work on your emulator of choice, then there is a problem with your emulator. The game was tested on a real SNES using the FXPAK Pro, and it worked perfectly, so if it does not work in your emulator, that is the emulator's problem. That said, see the troubleshooting section for solutions to fix the issue if you encounter any. Look at the tested devices and emulators section to see the game's compatibility with each of the devices and emulators.
+
+8. "Can I sell/produce physical copies of this game?"
+-----------------------------------------------------
+You can, as long as it is an official release of the game, and not a development prototype. The game is a non-profit work, so do not get me involved.
+
+9. "What on Earth is a diaper museum?"
+--------------------------------------
+It is kind of a shout out to another Super Mario World hack, Yoshi's Strange Quest. That hack mentions a "toilet museum" in the backstory, and said toilet museum contained toilets that "famous people have used", when the only famous people involved were 4 people who thought of that idea. The diaper museum is effecively the same kind of concept. Instead of toilets, it has... diapers.
+
+10. "I beat the game, so I went to Yoshi's Island 1 and 2. There is a wall at the start of both levels. Why?"
+-------------------------------------------------------------------------------------------------------------
+Nobody, and I mean nobody wants to replay Super Mario World levels in a ROM hack. Thus, the ability to play through them has been blocked. Then again, if you somehow manage to complete both levels, nothing will even happen. You just wasted your time, that is all. That should not be possible under normal circumstances, however.
+
+11. "Is there a walkthrough of Paranormal Yoshi's House out there?"
+-------------------------------------------------------------------
+There will be. I will prepare a full walkthrough once the hack is released.
+
+12. "Can I redistribute the hack?"
+----------------------------------
+Please read the features section.
+
+13. "What about the resources you made for this hack? Can I use and/or redistribute them?"
+-----------------------------------------------------------------------------------------
+Anything aside from the title screen, overworld, levels, and credits screen. No credit or permission is needed, so long as you do not try to pass off these resources as your own... because they are not. As for why certain things cannot be used, at that point, you are just recycling content from this hack.
+
+===============
+13. Bonus Items
+===============
+
+Aside from the BPS patch and this text file, you should (soon) have also gotten a box art, cartridge sticker, and an instruction booket. These are bonus items made to make the hack more or less like an actual SNES game, which do come with those things (along with a percautions booklet and other paper inserts). Details of these bonus items are as follows:
+
+Box Art - A box depicting what the game would look like if it was actually sold in stores. It is for those who wish to add the game to their shelf. Features:
+- A front side containing the cover image along with the other usual things on the front, including logos, the ESRB rating, a tagline, and the Nintendo Seal.
+- Side labels continaing the game's logo on it.
+- A back side containing a summary, screenshots, and the other usual things on the back, including warnings, logos, and a barcode.
+
+The box art is designed to be printed and constructed into an actual box for the game.
+
+Cartridge Sticker - A sticker for the cartridge that has the game on it. Contains:
+- A front side containing the main game logo, along with the other universal labels and logos on the sticker, including the ESRB rating.
+- An end label containing the game title for those who store SNES games just as the cartridge on the shelf.
+
+The sticker is designed to be printed and stuck onto an actual SNES cartridge. It is designed for US cartridges only.
+
+Instruction Booklet - A booklet that explains how to play the game, along with key mechanics and features. Contains:
+- A story section
+- A characters section
+- A controller operation section
+- A setup section
+- A 2 player game section
+- A section on saving progress
+- A section on the actions that Mario & Luigi can do
+- A section on Yoshi's House
+- A section on items and objects
+- A section on enemies and foes
+
+The instruction booklet is designed to be printed and assembled into an actual instruction booklet for the game. As such, it is presented in double page format.
+
+=================
+14. Miscellaneous
+=================
+
+- Development prototypes for this hack are available on Swaguy14256's Vault. They are there to show the evolution of this hack. They have NOT been fully tested, so play them at your own risk. Development prototypes cannot be redistributed unless it is for archival purposes.
+
+- Any comments or unanswered questions should be posted on the release thread on SMW Central, or they can be messaged to me on any of the site I have an account on. Please refer to https://super-bold-marmot.ngrok-free.app/info/ to see which accounts I have.
