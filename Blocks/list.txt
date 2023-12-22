@@ -25,6 +25,6 @@
 2DC:025 invisible_vine_block.asm
 318:038 MultiMidwayBlock2.asm
 31F:038 MultiMidwayBlock1.asm
-3F6:025 no_mario_block.asm
-405:038 MultiMidwayBlock3.asm
-42A:025 mystery_note.asm
+3F8:025 no_mario_block.asm
+406:038 MultiMidwayBlock3.asm
+407:025 mystery_note.asm
