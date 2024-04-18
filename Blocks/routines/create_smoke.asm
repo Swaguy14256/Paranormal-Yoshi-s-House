@@ -14,9 +14,17 @@
 	LDA $98
 	AND #$F0
 	STA $17C4|!addr,x
+
 	LDA $9A
 	AND #$F0
 	STA $17C8|!addr,x
+
+	LDA $99			;\
+	STA $18C5|!addr,x	;/ Sets the high byte of the smoke Y position.
+
+	LDA $9B			;\
+	STA $18C9|!addr,x	;/ Sets the high byte of the smoke X position.
+
 	BRA ?+
 
 ?next:
