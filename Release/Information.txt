@@ -37,11 +37,11 @@ After the events of Super Mario Bros. 3, Mario, Luigi, and Princess Toadstool go
 3. Features
 ===========
 
-- 1 level and exit, consisting of 4 parts
-- Custom graphics
-- Custom music
-- Custom ASM
-- (Planned) Box art, cartridge sticker, and instruction booklet, because that is what real SNES games come with, along with other inserts like the precautions booklet and promotional flyers and posters
+- 1 level and exit, consisting of 4 parts.
+- Custom graphics.
+- Custom music.
+- Custom ASM.
+- (Planned) Box art, cartridge sticker, and instruction booklet, because that is what real SNES games come with, along with other inserts like the precautions booklet and promotional flyers and posters.
 
 The .zip file should contain the BPS patch, this text file, (soon) an image of the box art, all dimensions included, (soon) the cartridge sticker, front and end label, and (soon) the instruction booklet. Do not reupload this .zip with the contents changed of modified, except for maybe replacing the BPS patch included with patched ROM. (Only do this on ROM hosting sites, where all risks are on the third party uploader.)
 
@@ -57,7 +57,7 @@ The .zip file should contain the BPS patch, this text file, (soon) an image of t
 5. Setup
 ========
 
-To make a copy of Paranormal Yoshi's House, you need to have a copy of a clean US region Super Mario World ROM. You are on your own to find one, using whatever means you have. Japanese and PAL ROMs are not supported.
+To make a copy of Paranormal Yoshi's House, you need to have a copy of a clean US region Super Mario World ROM. You are on your own to find one, (as I cannot provide a ROM for you), using whatever means you have. Japanese and PAL ROMs are not supported.
 
 After you obtain your .smc or .sfc file of Super Mario World, extract the BPS patch from this .zip somewhere on your computer. Next, run Floating IPS by either running the program itself, or from the BPS patch itself, provided you set Floating IPS to open .bps files by default.
 
@@ -70,36 +70,35 @@ If you cannot run Floating IPS, find a way to apply BPS patches to files on your
 ===========
 
 Title Screen Demo:
-A, B, X, Y, Start, Or Select Buttons	- Bring up the file select menu
+A, B, X, Y, Start, Or Select Buttons	- Bring up the file select menu.
 
 File And Player Select Menu:
-Up, Down Or Select Button		- Navigate the menu
-Left Or Right				- Navigate the sound or music test
-L Or R Buttons				- Navigate the sound or music test, and play the sound effect or music
-X Or Y Buttons				- Go back to the file select menu
-A, B, Or Start Buttons			- Confirm selection
-
+Up, Down Or Select Button		- Navigate the menu.
+Left Or Right				- Navigate the sound or music test.
+L Or R Buttons				- Navigate the sound or music test, and play the sound effect or music.
+X Or Y Buttons				- Go back to the file select menu.
+A, B, Or Start Buttons			- Confirm selection.
 
 World Map:
-Control Pad				- Move Mario or Luigi on the map, navigate the save prompt or continue screen
-A Button				- Enter level, confirm save prompt or continue screen selection
-B Button				- Enter level, give one of Luigi's lives to Mario (2 players only)
-X Button				- Enter level
-Y Button				- Enter level, give one of Mario's lives to Luigi (2 players only)
-L Or R Buttons				- Bring up the lives exchange prompt (2 players only)
-Select Button				- Bring up the save prompt, navigate the save prompt
-Start Button				- Confirm save prompt or continue screen selection, exit the lives exchange prompt (2 players only)
+Control Pad				- Move Mario or Luigi on the map, navigate the save prompt or continue screen.
+A Button				- Enter level, confirm save prompt or continue screen selection.
+B Button				- Enter level, give one of Luigi's lives to Mario (2 players only).
+X Button				- Enter level.
+Y Button				- Enter level, give one of Mario's lives to Luigi (2 players only).
+L Or R Buttons				- Bring up the lives exchange prompt (2 players only).
+Select Button				- Bring up the save prompt, navigate the save prompt.
+Start Button				- Confirm save prompt or continue screen selection, exit the lives exchange prompt (2 players only).
 
 Level:
-Left or Right				- Move Mario or Luigi, fly with cape, turn around
-Up					- Look up, enter doors, climb, talk to Yoshis and Birdos
-Down					- Crouch, slide (on hills), climb
-A Button				- Spin jump, swim, dismount Test Yoshi, exit message box
-B Button				- Jump, swim, exit message box
-X Or Y Buttons				- Dash, shoot fireballs, exit message box, carry and release items, extend Test Yoshi's tongue, spit items (when in Test Yoshi's mouth), change direction while flying
-L Or R Buttons				- Scroll screen left or right
-Start					- Pause game, exit message box
-Select					- Use reserve item, exit completed level (while paused), exit message box
+Left or Right				- Move Mario or Luigi, fly with cape, turn around.
+Up					- Look up, enter doors, climb, talk to Yoshis and Birdos.
+Down					- Crouch, slide (on hills), climb.
+A Button				- Spin jump, swim, dismount Test Yoshi, exit message box.
+B Button				- Jump, swim, exit message box.
+X Or Y Buttons				- Dash, shoot fireballs, exit message box, carry and release items, extend Test Yoshi's tongue, spit items (when in Test Yoshi's mouth), change direction while flying.
+L Or R Buttons				- Scroll screen left or right.
+Start					- Pause game, exit message box.
+Select					- Use reserve item, exit completed level (while paused), exit message box.
 
 Note: There are other moves that can be done. They are explained by various characters that can be talked to.
 
@@ -109,7 +108,7 @@ Note: There are other moves that can be done. They are explained by various char
 
 - Mario and Luigi can exit Yoshi's House at the entrance by going to either side of the screen.
 - The Yoshis and Birdos will give you hints. Refusing to talk to them may make things a lot more complicated than they need to be.
-- Some areas have a time limit. Most cases, running the time limit results in an instant life loss.
+- Some areas have a time limit. In these cases, running the time limit results in an instant life loss.
 - If you enter Yoshi's bathroom before defeating Bob, wait until the time limit reaches 0, and you will exit out of it.
 - The soup pot in Yoshi's kitchen will damage Mario and Luigi if they jump into it.
 - After completing the game, you can listen to the game's sountrack in Yoshi's labratory. Talk to White Yoshi for instructions on how to use the music player.
@@ -122,7 +121,7 @@ Note: There are other moves that can be done. They are explained by various char
 - There is a 3-UP Moon hidden in Yoshi's basement.
 - In the outskirts of Yoshi's backyard, the coin counter caps at 99 coins. That is to prevent you from undoing all your progress since more than 99 coins can be collected in the outskirts.
 - There are 5 Dragon Coins and a hidden 1-UP Mushroom in the backyard outskirts.
-- All collectables cannot be obtained after defeating Bob. That said, consider exploring the backyard outskirts after defeating Bob.
+- All collectables cannot be obtained after defeating Bob. With all that said, consider exploring the backyard outskirts after defeating Bob.
 - Bob's snowflakes can be melted with fireballs. Also, Bob's rocks can be removed using a spin attack.
 - Bob will always cast lighting on you at least once. That way, you should not risk running the time limit because Bob did not cast his lightning attack, which is required to defeat him.
 - The reserve item will disappear in certain situations. It cannot be recovered.
@@ -142,7 +141,7 @@ Note: There are other moves that can be done. They are explained by various char
 	- Complete the game with at least one player having 99 lives.
   Completing the 1st objective will put a star next to the exit counter, while completing objectives 2-5 will upgrade the appearance of the exit counter. Completing 1 of those objectives will make the exit counter bronze, completing 2 of those objectives will make it silver, completing 3 of those objectives will make it gold, and completing all 4 of those objectives will make it platinum.
   The last objective can be obtained but then lost if you load the save file and lose a life with the current character that has 99 lives. If both Mario and Luigi have 99 lives, both need to have 98 or fewer lives for the last objective to be revoked.
-- The maximum score that can be obtained is 9,999,999 points. There is no real easy way to do this, nor is there any completion for doing this, but this is for those ultra completionists... which I am one of those. *groan*
+- The maximum score that can be obtained is 9,999,999 points. There is no real easy way to do this, nor is there any completion for doing this, but this is for those ultra completionists... which I am (unfortunately) one of those. *groan*
 - Copying files will be implemented in a future version, which is simply so you can fill all 3 files with the same data. Overwritten files will not be recoverable once the copied file is pasted over.
 - Another planned feature is to play as EITHER Mario or Luigi. In 1 player games, this determines who will be in control. In 2 player games, this will determine whether player 1 will go first, or player 2 will go first.
 
@@ -151,22 +150,22 @@ Note: There are other moves that can be done. They are explained by various char
 ===============================
 
 Emulators:
-- Snes9x: Works almost perfectly, the scanline glitch on consoles and bsnes is not present
+- Snes9x: Works almost perfectly, the scanline glitch on consoles and bsnes is not present.
 
-- bsnes: Works perfectly
+- bsnes: Works perfectly.
 
-- ares: Unknown, possibly similar results to bsnes
+- ares: Unknown, possibly similar results to bsnes.
 
-- Mesen2: Unknown
+- Mesen: Works perfectly.
 
-- BizHawk: Unknown
+- BizHawk: Unknown.
 
 Flash Cartridges:
 - SUPER EVERDRIVE X5: Unknown, very likely the same results as the FXPAK Pro.
 
 - SUPER EVERDRIVE X6: Unknown, very likely the same results as the FXPAK Pro.
 
-- FXPAK Pro: Works perfectly
+- FXPAK Pro: Works perfectly.
 
 ==================
 9. Version History
@@ -206,7 +205,9 @@ If either of these 2 suggestions do not fix your problem, please send a message 
 --------------------
 This usually means that your computer is too weak to run SNES emulators. This should not be the case unless your computer is from the prehistoric ages. Nevertheless, below list some fixes.
 
-TBD
+- If on Snes9x, try enabling frame skipping. This is done under "Video->Display Configuration". From there, either pick "Automatic, skip at most: N" or "Fixed, always skip: N" under "Display Settings->Frame Skipping". In either case, N is a number that can be 0 at minimum. Adjust that number until the performance improves.
+
+- If running on a Windows laptop, try setting the performance mode to "Maximum Performance" in the battery settings. Make sure the computer is plugged in; otherwise, the CPU will throttle to conserve battery power.
 
 If there is still slowdown, then that is just simply because you are in an area where the game's performance does in fact slow down. There is nothing else you can do about it.
 
@@ -273,7 +274,7 @@ Nobody, and I mean nobody wants to replay Super Mario World levels in a ROM hack
 
 11. "Is there a walkthrough of Paranormal Yoshi's House out there?"
 -------------------------------------------------------------------
-There will be. I will prepare a full walkthrough once the hack is released.
+There will be. I will prepare a full walkthrough soon.
 
 12. "Can I redistribute the hack?"
 ----------------------------------
@@ -320,6 +321,6 @@ The instruction booklet is designed to be printed and assembled into an actual i
 14. Miscellaneous
 =================
 
-- Development prototypes for this hack are available on Swaguy14256's Vault. They are there to show the evolution of this hack. They have NOT been fully tested, so play them at your own risk. Development prototypes cannot be redistributed unless it is for archival purposes.
+- Development prototypes for this hack will be available on Swaguy14256's Vault. They are there to show the evolution of this hack. They have NOT been fully tested, so play them at your own risk. Development prototypes cannot be redistributed unless it is for archival purposes.
 
-- Any comments or unanswered questions should be posted on the release thread on SMW Central, or they can be messaged to me on any of the site I have an account on. Please refer to https://super-bold-marmot.ngrok-free.app/info/ to see which accounts I have.
+- Any comments or unanswered questions should be posted on the release thread on SMW Central, or they can be messaged to me on any of the site I have an account on. Please refer to https://www.swaguy14256svault.com/info/ to see which accounts I have.
