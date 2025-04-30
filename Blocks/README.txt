@@ -169,5 +169,5 @@ For developers:
 
 
 Bounce Block Unrestrictor & Custom Bounce Block
-	The spawn_bounce_sprite routine can be used with the BBU/CBB patches. To use it make sure that !bounce_map16_num (In defines.asm) is what you set the map16 table to in the BBU/CBB patch.
-	If you do not use a block that needs these patches don't worry about it, it won't affect you.
+	The spawn_bounce_sprite routine can be used with the BBU/CBB patches (https://www.smwcentral.net/?p=section&a=details&id=18996). To use it make sure that !bounce_map16_num (In defines.asm) is what you set the map16 table to in the BBU/CBB patch.
+	If you do not use a block that needs these patches then this won't affect you.

@@ -13,10 +13,10 @@
 	EOR #$FF         ;\Otherwise make it unsigned.
 	INC              ;/
 ?+
-	CMP #$09         ;\If speed of #$08 or faster, set carry
-	BCS ?+            ;/
-	CLC              ;>Clear carry (not hit)
+	CMP #$08         ;\If speed of #$08 or faster, set carry
+;	BCS ?+            ;/
+;	CLC              ;>Clear carry (not hit)
 	RTL
-?+
-	SEC              ;>Set carry (hit)
+;?+
+;	SEC              ;>Set carry (hit)
 	RTL

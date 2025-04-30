@@ -1,4 +1,4 @@
-; Gets the actual sprite position even when placed on layer 2 into $00-$03
+; Gets the actual sprite position, even when placed on layer 2, into $00-$03
 ;  Sprites x position will be in 16-bit $00
 ;  Sprites y position will be in 16-bit $02
 ; Only use this in SpriteV or SpriteH
