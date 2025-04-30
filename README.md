@@ -10,6 +10,6 @@ An SMW Hack that has been in development since 2016. I only made this repository
 6. Go to "File->Levels" and select "Import Multiple Levels from Files...". Then, make sure "Clear all existing secondary entrances in ROM before importing" is unchecked. From there, select the "Levels" directory.
 7. Go into the "Music" folder and run AddmusicK to insert all the music into the ROM.
 8. Go into the "Blocks" folder and run GPS to insert all the blocks into the ROM.
-9. Go into the "Patches" folder and run "patchinsert.bat" to insert all the patches into the ROM, and in the correct order.
+9. Go into the "Patches" folder and run "insert.bat" to insert all the patches into the ROM, and in the correct order.
 10. Go into the "uberASM" folder and run "insert.bat" to insert all the uberASM into the ROM.
 11. Finally, go into the "Sprites" folder and run PIXI to insert all the sprites into the ROM.
