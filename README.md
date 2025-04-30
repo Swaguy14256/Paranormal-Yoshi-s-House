@@ -1,7 +1,7 @@
-# Paranormal-Yoshi-s-House
+# Paranormal Yoshi's House
 An SMW Hack that has been in development since 2016. I only made this repository now in 2022. It contains all the source code used for the hack.
 
-# Compiling Instructions
+# Compilation Instructions
 1. Extract the source code to a folder somewhere on your computer.
 2. Use Floating IPS and apply "base.bps" to an unmodified Super Mario World ROM (US Version). The patched ROM must be in the same directory you extracted the source code to.
 3. Open the program in Lunar Magic, (Version 3.33 is recommended), click the "Quick Insert GFX and ExGFX to ROM, reload graphics" button to insert the graphics.
